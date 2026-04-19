@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Literaturepochen fürs Deutsch-Abi – Master-Zusammenfassung</title>
+<meta name="description" content="Verständliche Übersicht zu den wichtigsten Literaturepochen fürs Deutsch-Abi: Aufklärung, Sturm und Drang, Klassik, Romantik, Vormärz, Biedermeier, Realismus, Naturalismus, Stilpluralismus und Expressionismus.">
+<meta name="robots" content="index, follow">
+<style>
+  :root {
+    --c-hintergrund: #f7f8fb;
+    --c-text: #1b1b1b;
+    --c-muted: #5f6773;
+    --c-card: #ffffff;
+    --c-border: #d8dee8;
+    --c-accent: #1e5fb3;
+    --c-accent-dark: #154785;
+    --c-epochen: #6b2d9e;
+    --c-epochen-bg: #f3ebfa;
+    --c-merkmale: #1f7a42;
+    --c-merkmale-bg: #e8f5ed;
+    --c-hintergrundbox: #b5341a;
+    --c-hintergrundbox-bg: #fbe9e3;
+    --c-autoren: #b2740d;
+    --c-autoren-bg: #fdf3e0;
+    --c-kern: #8a6d00;
+    --c-kern-bg: #fff7c2;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--c-hintergrund);
+    color: var(--c-text);
+    line-height: 1.6;
+  }
+
+  .topbar {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+
+  header {
+    background: linear-gradient(135deg, #111 0%, #1e5fb3 100%);
+    color: white;
+    padding: 56px 20px 42px;
+  }
+
+  .wrap {
+    max-width: 1050px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin: 0 0 12px;
+    font-size: 42px;
+    line-height: 1.15;
+  }
+
+  .sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.92);
+    margin: 0;
+    max-width: 780px;
+  }
+
+  .mini-nav {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .mini-nav a {
+    text-decoration: none;
+    color: white;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+  }
+
+  main {
+    padding: 34px 20px 70px;
+  }
+
+  .intro-box, .toc, .epoche-card {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  }
+
+  .intro-box {
+    padding: 24px;
+    margin-bottom: 26px;
+  }
+
+  .toc {
+    padding: 20px 24px;
+    margin-bottom: 30px;
+  }
+
+  .toc strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 8px 18px;
+  }
+
+  .toc a {
+    color: var(--c-accent);
+    text-decoration: none;
+  }
+
+  .toc a:hover {
+    text-decoration: underline;
+  }
+
+  .kern {
+    border-left: 5px solid var(--c-kern);
+    background: var(--c-kern-bg);
+    padding: 12px 16px;
+    border-radius: 0 10px 10px 0;
+    margin: 16px 0 0;
+    font-weight: 500;
+  }
+
+  .kern::before {
+    content: "★ MERKHILFE  ";
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--c-kern);
+  }
+
+  .epoche-card {
+    padding: 26px;
+    margin-bottom: 28px;
+  }
+
+  .epoche-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+
+  .epoche-head h2 {
+    margin: 0;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .zeitraum {
+    background: #eef3fb;
+    color: var(--c-accent-dark);
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .box {
+    border-left: 5px solid;
+    padding: 12px 16px;
+    border-radius: 0 10px 10px 0;
+    margin: 14px 0;
+  }
+
+  .box .label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+
+  .epochenbox {
+    border-color: var(--c-epochen);
+    background: var(--c-epochen-bg);
+  }
+
+  .epochenbox .label {
+    background: var(--c-epochen);
+  }
+
+  .merkmale {
+    border-color: var(--c-merkmale);
+    background: var(--c-merkmale-bg);
+  }
+
+  .merkmale .label {
+    background: var(--c-merkmale);
+  }
+
+  .hintergrundbox {
+    border-color: var(--c-hintergrundbox);
+    background: var(--c-hintergrundbox-bg);
+  }
+
+  .hintergrundbox .label {
+    background: var(--c-hintergrundbox);
+  }
+
+  .autoren {
+    border-color: var(--c-autoren);
+    background: var(--c-autoren-bg);
+  }
+
+  .autoren .label {
+    background: var(--c-autoren);
+  }
+
+  h3 {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-size: 20px;
+    border-bottom: 2px solid #d8dee8;
+    padding-bottom: 4px;
+  }
+
+  ul {
+    margin: 8px 0;
+    padding-left: 22px;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .quick-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 14px;
+    background: white;
+  }
+
+  .quick-table th, .quick-table td {
+    border: 1px solid #d0d6de;
+    padding: 9px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .quick-table th {
+    background: #eef3fb;
+  }
+
+  footer {
+    text-align: center;
+    color: #707784;
+    font-size: 14px;
+    padding: 28px 20px 50px;
+  }
+
+  @media (max-width: 860px) {
+    h1 { font-size: 34px; }
+    .toc-grid, .two-col { grid-template-columns: 1fr; }
+    .epoche-head h2 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  Deutsch-Abi kompakt · Epochen verstehen · schneller lernen
+</div>
+
+<header>
+  <div class="wrap">
+    <h1>Literaturepochen fürs Deutsch-Abi</h1>
+    <p class="sub">
+      Eine verständliche Übersicht zu den wichtigsten Epochen mit Zeitraum, historischem Hintergrund,
+      Merkmalen, typischen Konflikten, Schlüsselwörtern und Autorinnen bzw. Autoren.
+    </p>
+
+    <nav class="mini-nav" aria-label="Schnellzugriff">
+      <a href="#ueberblick">Überblick</a>
+      <a href="#aufklaerung">Aufklärung</a>
+      <a href="#sturm">Sturm und Drang</a>
+      <a href="#klassik">Klassik</a>
+      <a href="#romantik">Romantik</a>
+      <a href="#vormaerz">Vormärz</a>
+      <a href="#biedermeier">Biedermeier</a>
+      <a href="#realismus">Realismus</a>
+      <a href="#naturalismus">Naturalismus</a>
+      <a href="#stilpluralismus">Stilpluralismus</a>
+      <a href="#expressionismus">Expressionismus</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="intro-box" id="ueberblick">
+      <h2 style="margin-top:0;">Wozu sind Epochen wichtig?</h2>
+      <p>
+        Wenn du eine Epoche erkennst, verstehst du einen Text meist viel schneller:
+        Du kannst typische Themen, Motive, Sprachmerkmale und Konflikte besser einordnen.
+        Gerade im Abi hilft dir das bei Einleitung, Deutung und historischen Bezügen.
+      </p>
+
+      <div class="kern">
+        Im Abi reicht es meistens nicht, nur den Zeitraum zu kennen. Viel wichtiger ist:
+        <strong>Welches Menschenbild?</strong> Welche <strong>typischen Themen?</strong>
+        Welche <strong>Konflikte?</strong> Welche <strong>Sprach- und Formmerkmale?</strong>
+      </div>
+    </section>
+
+    <section class="toc">
+      <strong>Inhaltsübersicht</strong>
+      <div class="toc-grid">
+        <a href="#aufklaerung">1 · Aufklärung</a>
+        <a href="#sturm">2 · Sturm und Drang</a>
+        <a href="#klassik">3 · Weimarer Klassik</a>
+        <a href="#romantik">4 · Romantik</a>
+        <a href="#vormaerz">5 · Vormärz / Junges Deutschland</a>
+        <a href="#biedermeier">6 · Biedermeier</a>
+        <a href="#realismus">7 · Realismus</a>
+        <a href="#naturalismus">8 · Naturalismus</a>
+        <a href="#stilpluralismus">9 · Stilpluralismus um 1900</a>
+        <a href="#expressionismus">10 · Expressionismus</a>
+      </div>
+    </section>
+
+    <section class="epoche-card" id="aufklaerung">
+      <div class="epoche-head">
+        <h2>1 · Aufklärung</h2>
+        <div class="zeitraum">ca. 1720–1800</div>
+      </div>
+
+      <div class="box epochenbox">
+        <span class="label">Kernidee</span>
+        <p>Im Mittelpunkt steht die Vernunft. Der Mensch soll selbst denken, sich bilden und sich aus Unmündigkeit, Bevormundung und ständischen Zwängen lösen.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="box hintergrundbox">
+          <span class="label">Historischer Hintergrund</span>
+          <ul>
+            <li>Neue bürgerliche Gesellschaft des 18. Jahrhunderts</li>
+            <li>Kritik an Adel, Kirche und Bevormundung</li>
+            <li>Gleichheit aller Menschen von Natur aus</li>
+            <li>Vernunft, Bildung und Erziehung werden Leitbegriffe</li>
+          </ul>
+        </div>
+
+        <div class="box merkmale">
+          <span class="label">Merkmale</span>
+          <ul>
+            <li>Vernunft statt blindem Glauben</li>
+            <li>Literatur soll aufklären und erziehen</li>
+            <li>Glaube an Fortschritt, Toleranz und Moral</li>
+            <li>Klarheit, Nützlichkeit, argumentative Struktur</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Schlüsselwörter & Konflikte</h3>
+      <p><strong>Schlüsselwörter:</strong> Vernunft, Verstand, Tugend, Moral, Erziehung, Licht, Toleranz, Selbstverantwortung.</p>
+      <p><strong>Typische Konflikte:</strong> adelige Willkür ↔ bürgerliche Tugend; Kirche ↔ subjektive religiöse Empfindung; soziale Unterschiede ↔ Gleichheit aller Menschen.</p>
+
+      <div class="box autoren">
+        <span class="label">Typische Vertreter</span>
+        <p>Lessing, Gottsched, Wieland, Kant, Rousseau, Voltaire.</p>
+      </div>
+    </section>
+
+    <section class="epoche-card" id="sturm">
+      <div class="epoche-head">
+        <h2>2 · Sturm und Drang</h2>
+        <div class="zeitraum">ca. 1765–1785</div>
+      </div>
+
+      <div class="box epochenbox">
+        <span class="label">Kernidee</span>
+        <p>Gefühl, Leidenschaft und Individualität werden wichtiger als reine Vernunft. Das freie, schöpferische Ich steht im Mittelpunkt.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="box hintergrundbox">
+          <span class="label">Historischer Hintergrund</span>
+          <ul>
+            <li>Gegenbewegung zur Aufklärung</li>
+            <li>Kritik an politischer Bevormundung</li>
+            <li>Stärkeres bürgerliches Selbstbewusstsein</li>
+            <li>Natur wird als schöpferische Kraft verstanden</li>
+          </ul>
+        </div>
+
+        <div class="box merkmale">
+          <span class="label">Merkmale</span>
+          <ul>
+            <li>Gefühlskult und Freundschaftskult</li>
+            <li>Originalgenie statt Regelpoetik</li>
+            <li>Selbstverwirklichung und Freiheit des Ich</li>
+            <li>Natur als Spiegel innerer Zustände</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Schlüsselwörter & Konflikte</h3>
+      <p><strong>Schlüsselwörter:</strong> Rebell, Kraft, Ich, Herz, Gefühl, Genie, Selbstbestimmung, Natur, Ursprünglichkeit.</p>
+      <p><strong>Typische Konflikte:</strong> abweisende Welt ↔ fühlender Mensch; Moral ↔ Leidenschaft; gesellschaftliche Willkür ↔ Individuum.</p>
+
+      <div class="box autoren">
+        <span class="label">Typische Vertreter</span>
+        <p>Goethe, Schiller, Herder, Lenz, Klinger.</p>
+      </div>
+    </section>
+
+    <section class="epoche-card" id="klassik">
+      <div class="epoche-head">
+        <h2>3 · Weimarer Klassik</h2>
+        <div class="zeitraum">ca. 1786–1805</div>
+      </div>
+
+      <div class="box epochenbox">
+        <span class="label">Kernidee</span>
+        <p>Die Klassik sucht Harmonie: Gefühl und Vernunft sollen ausgeglichen werden. Kunst soll Humanität, Maß und innere Vervollkommnung vermitteln.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="box hintergrundbox">
+          <span class="label">Historischer Hintergrund</span>
+          <ul>
+            <li>Goethes Italienreise und Orientierung an der Antike</li>
+            <li>Enttäuschung über die Französische Revolution</li>
+            <li>Humanität als zentrales Ideal</li>
+          </ul>
+        </div>
+
+        <div class="box merkmale">
+          <span class="label">Merkmale</span>
+          <ul>
+            <li>Wahres, Gutes, Schönes</li>
+            <li>Maß, Gesetz, Form und Harmonie</li>
+            <li>Erziehung des Menschen durch Kunst</li>
+            <li>Antike als Vorbild für Kunst und Menschenbild</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Schlüsselwörter & Konflikte</h3>
+      <p><strong>Schlüsselwörter:</strong> Humanität, Ideal, Maß, Form, Gesetz, Vervollkommnung.</p>
+      <p><strong>Typische Konflikte:</strong> Intrige, Macht, Fremdbestimmung ↔ Wahrheit, Autonomie, Humanität.</p>
+
+      <div class="box autoren">
+        <span class="label">Typische Vertreter</span>
+        <p>Goethe, Schiller.</p>
+      </div>
+    </section>
+
+    <section class="epoche-card" id="romantik">
+      <div class="epoche-head">
+        <h2>4 · Romantik</h2>
+        <div class="zeitraum">ca. 1795–1835</div>
+      </div>
+
+      <div class="box epochenbox">
+        <span class="label">Kernidee</span>
+        <p>Die Romantik richtet den Blick auf Sehnsucht, Fantasie, Gefühl, Traum, Nacht, Natur und das Geheimnisvolle. Sie sucht das Unendliche und Übersinnliche.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="box hintergrundbox">
+          <span class="label">Historischer Hintergrund</span>
+          <ul>
+            <li>Fortsetzung idealistischer Denkweisen</li>
+            <li>Gegenbewegung zur nüchternen Vernunftorientierung</li>
+            <li>Interesse am Inneren, Mystischen und Märchenhaften</li>
+          </ul>
+        </div>
+
+        <div class="box merkmale">
+          <span class="label">Merkmale</span>
+          <ul>
+            <li>Sehnsucht nach Ferne und Entgrenzung</li>
+            <li>Wandern, Reisen, Nacht, Mond, Musik, Natur</li>
+            <li>Traum, Fantasie, Spuk, Märchen, Jenseits</li>
+            <li>Künstlerfigur oft im Gegensatz zum Spießbürger</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Schlüsselwörter & Konflikte</h3>
+      <p><strong>Schlüsselwörter:</strong> Sehnsucht, Nacht, Mond, Natur, Lied, Musik, Liebe, Glaube, Fantasie.</p>
+      <p><strong>Typische Konflikte:</strong> Fantasie und Traum ↔ Wirklichkeit; Vergangenheit ↔ Gegenwart; Künstler ↔ Spießbürger.</p>
+
+      <div class="box autoren">
+        <span class="label">Typische Vertreter</span>
+        <p>Novalis, Eichendorff, Hoffmann, Brentano, Arnim.</p>
+      </div>
+    </section>
+
+    <section class="epoche-card" id="vormaerz">
+      <div class="epoche-head">
+        <h2>5 · Vormärz / Junges Deutschland</h2>
+        <div class="zeitraum">ca. 1830–1850</div>
+      </div>
+
+      <div class="box epochenbox">
+        <span class="label">Kernidee</span>
+        <p>Der Vormärz ist politisch, kritisch und kämpferisch. Literatur soll eingreifen, Missstände benennen und Veränderung fordern.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="box hintergrundbox">
+          <span class="label">Historischer Hintergrund</span>
+          <ul>
+            <li>1815 Wiener Kongress und Restauration</li>
+            <li>Karlsbader Beschlüsse, Zensur und Verfolgung</li>
+            <li>Hambacher Fest und Märzrevolution</li>
+            <li>Widerstand gegen politische Unterdrückung</li>
+          </ul>
+        </div>
+
+        <div class="box merkmale">
+          <span class="label">Merkmale</span>
+          <ul>
+            <li>Offene Ablehnung von Restauration und Zensur</li>
+            <li>radikale politische Kritik</li>
+            <li>aktives Handeln statt Rückzug</li>
+            <li>sprache oft salopp, provozierend, satirisch und alltagsnah</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Schlüsselwörter & Konflikte</h3>
+      <p><strong>Schlüsselwörter:</strong> Freiheit, Pressefreiheit, Revolution, Kritik, Sozialismus, Frauenemanzipation.</p>
+      <p><strong>Typische Konflikte:</strong> Unterdrückung ↔ Freiheit; Staat und Zensur ↔ Öffentlichkeit; alte Ordnung ↔ gesellschaftlicher Wandel.</p>
+
+      <div class="box autoren">
+        <span class="label">Typische Vertreter</span>
+        <p>Heine, Büchner, Gutzkow, Grabbe.</p>
+      </div>
+    </section>
+
+    <section class="epoche-card" id="biedermeier">
+      <div class="epoche-head">
+        <h2>6 · Biedermeier</h2>
+        <div class="zeitraum">ca. 1815–1848</div>
+      </div>
+
+      <div class="box epochenbox">
+        <span class="label">Kernidee</span>
+        <p>Im Biedermeier steht der Rückzug ins Private im Mittelpunkt. Statt politischem Kampf dominieren Ruhe, Ordnung, Natur, Innerlichkeit und das Kleine des Alltags.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="box hintergrundbox">
+          <span class="label">Historischer Hintergrund</span>
+          <ul>
+            <li>Zeit nach dem Wiener Kongress</li>
+            <li>Restauration und strenge Zensur</li>
+            <li>politische Resignation vieler Bürger</li>
+          </ul>
+        </div>
+
+        <div class="box merkmale">
+          <span class="label">Merkmale</span>
+          <ul>
+            <li>Liebe zum Kleinen, Alltäglichen und zur Natur</li>
+            <li>Rückzug ins Private</li>
+            <li>Konservativ, melancholisch, ruhig</li>
+            <li>Bedürfnis nach innerem Frieden und Ordnung</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Typische Gattungen & Vertreter</h3>
+      <p><strong>Gattungen:</strong> Novellen, Balladen, historische Dramen, Stimmungsbilder.</p>
+      <p><strong>Vertreter:</strong> Annette von Droste-Hülshoff, Eduard Mörike, Adalbert Stifter, Franz Grillparzer.</p>
+    </section>
+
+    <section class="epoche-card" id="realismus">
+      <div class="epoche-head">
+        <h2>7 · Realismus</h2>
+        <div class="zeitraum">ca. 1840/1848–1890/1900</div>
+      </div>
+
+      <div class="box epochenbox">
+        <span class="label">Kernidee</span>
+        <p>Der Realismus wendet sich der Wirklichkeit zu, aber nicht als bloße Kopie. Die Realität wird künstlerisch gestaltet, geordnet und oft leicht ästhetisiert.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="box hintergrundbox">
+          <span class="label">Historischer Hintergrund</span>
+          <ul>
+            <li>Industrialisierung und Verstädterung</li>
+            <li>Aufschwung von Naturwissenschaft und Technik</li>
+            <li>soziale Frage und politische Veränderungen unter Bismarck</li>
+            <li>Kulturkampf und gesellschaftlicher Wandel</li>
+          </ul>
+        </div>
+
+        <div class="box merkmale">
+          <span class="label">Merkmale</span>
+          <ul>
+            <li>bürgerlicher Alltag und Privatleben im Mittelpunkt</li>
+            <li>Menschen in alltäglichen Situationen</li>
+            <li>Liebe, Leid, Tod, Pflicht, Gesellschaft</li>
+            <li>Wirklichkeitsnähe, Detailreichtum, aber keine extreme Schwarz-Weiß-Zeichnung</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Schlüsselwörter & Konflikte</h3>
+      <p><strong>Schlüsselwörter:</strong> Wirklichkeit, Mensch, Gesellschaft, Heimat, Gegenwart, Vergangenheit, Natur.</p>
+      <p><strong>Typische Konflikte:</strong> gesellschaftliche Normen ↔ persönliches Leben; Tradition ↔ Neues; Glück und Gefühle ↔ Pflicht und Ordnung.</p>
+
+      <div class="box autoren">
+        <span class="label">Typische Vertreter</span>
+        <p>Fontane, Keller, Storm, Raabe, Meyer, Hebbel.</p>
+      </div>
+    </section>
+
+    <section class="epoche-card" id="naturalismus">
+      <div class="epoche-head">
+        <h2>8 · Naturalismus</h2>
+        <div class="zeitraum">ca. 1880–1900</div>
+      </div>
+
+      <div class="box epochenbox">
+        <span class="label">Kernidee</span>
+        <p>Der Naturalismus radikalisiert den Realismus. Er zeigt die „nackte, hässliche Wahrheit“ und rückt Elend, Armut, Krankheit und soziale Abhängigkeit ins Zentrum.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="box hintergrundbox">
+          <span class="label">Historischer Hintergrund</span>
+          <ul>
+            <li>starke Industrialisierung und Verstädterung</li>
+            <li>soziale Frage und Elend der Unterschichten</li>
+            <li>Einfluss von Naturwissenschaften, Psychologie und Soziologie</li>
+          </ul>
+        </div>
+
+        <div class="box merkmale">
+          <span class="label">Merkmale</span>
+          <ul>
+            <li>„Kunst = Natur – x“</li>
+            <li>Determinismus: Mensch ist durch Umwelt, Herkunft und Zeit bestimmt</li>
+            <li>Milieudarstellung, Sekundenstil, Sozialkritik</li>
+            <li>Alltagssprache, Dialekt, Soziolekt, Unterschicht als Figurengruppe</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Schlüsselwörter & Konflikte</h3>
+      <p><strong>Schlüsselwörter:</strong> Elend, Not, Großstadt, Determinismus, soziale Gerechtigkeit, Technik.</p>
+      <p><strong>Typische Konflikte:</strong> protziger Wilhelminismus ↔ verelendetes Proletariat; Individuum ↔ Milieu; Mensch ↔ gesellschaftliche Verhältnisse.</p>
+
+      <div class="box autoren">
+        <span class="label">Typische Vertreter</span>
+        <p>Gerhart Hauptmann, Arno Holz, Johannes Schlaf, Émile Zola, Henrik Ibsen.</p>
+      </div>
+    </section>
+
+    <section class="epoche-card" id="stilpluralismus">
+      <div class="epoche-head">
+        <h2>9 · Stilpluralismus um 1900 / Fin de Siècle</h2>
+        <div class="zeitraum">ca. 1890–1910</div>
+      </div>
+
+      <div class="box epochenbox">
+        <span class="label">Kernidee</span>
+        <p>Um 1900 existieren mehrere Stilrichtungen nebeneinander: Impressionismus, Symbolismus, Décadence, Jugendstil, Neoromantik. Im Zentrum stehen subjektive Eindrücke, Stimmungen und ästhetische Verfeinerung.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="box hintergrundbox">
+          <span class="label">Historischer Hintergrund</span>
+          <ul>
+            <li>starke Industrialisierung und Urbanisierung</li>
+            <li>neue Medien, neue Wissenschaften, neue Denk- und Weltbilder</li>
+            <li>Traditionsverlust, Sinnleere und Orientierungslosigkeit</li>
+            <li>gleichzeitig Faszination für das Neue</li>
+          </ul>
+        </div>
+
+        <div class="box merkmale">
+          <span class="label">Merkmale</span>
+          <ul>
+            <li>Ablehnung von Naturalismus und Realismus</li>
+            <li>Fokus auf subjektive Eindrücke und „Wirklichkeit der Seele“</li>
+            <li>hohes Form- und Stilbewusstsein</li>
+            <li>Symbole, Chiffren, Klangbilder, Farb- und Lautsymbole, Synästhesien</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Themen & Konflikte</h3>
+      <p><strong>Typische Themen:</strong> Weltschmerz, Untergang, Trauer, Liebe, Tod, Sehnen, Einsamkeit, Ich, Ohnmacht, Sexualität.</p>
+      <p><strong>Typische Konflikte:</strong> Traum ↔ Realität; verlorene Seele ↔ moderne Welt; Leben ↔ Kunst.</p>
+
+      <div class="box autoren">
+        <span class="label">Typische Vertreter</span>
+        <p>Hofmannsthal, Rilke, Thomas Mann, Kafka, Musil, Schnitzler, Stefan George.</p>
+      </div>
+    </section>
+
+    <section class="epoche-card" id="expressionismus">
+      <div class="epoche-head">
+        <h2>10 · Expressionismus</h2>
+        <div class="zeitraum">ca. 1910–1925</div>
+      </div>
+
+      <div class="box epochenbox">
+        <span class="label">Kernidee</span>
+        <p>Der Expressionismus ist eine Ausdruckskunst der Krise. Er zeigt Ich-Zerfall, Großstadt, Krieg, Weltuntergangsstimmung und den Wunsch nach radikalem Neubeginn.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="box hintergrundbox">
+          <span class="label">Historischer Hintergrund</span>
+          <ul>
+            <li>rasche Industrialisierung und Urbanisierung</li>
+            <li>tiefe gesellschaftliche Spannungen und Hochrüstung</li>
+            <li>Erster Weltkrieg und Zusammenbruch alter Ordnungen</li>
+            <li>Weltuntergangsstimmung und Hysterie</li>
+          </ul>
+        </div>
+
+        <div class="box merkmale">
+          <span class="label">Merkmale</span>
+          <ul>
+            <li>Ich-Zerfall, Entfremdung, Identitätsverlust</li>
+            <li>Apokalypse, Großstadt, Krieg, Verfall</li>
+            <li>Formsprengung, Wortneuschöpfungen, Reihungsstil</li>
+            <li>starke Bildlichkeit, Farben, Chiffren, Ästhetisierung des Hässlichen</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Typische Sprache & Vertreter</h3>
+      <p><strong>Sprachlich:</strong> harte Brüche, Dynamik, Intensität, grammatische Auflösung, starke Metaphorik.</p>
+      <p><strong>Vertreter:</strong> Benn, Trakl, Heym, Lasker-Schüler, van Hoddis, Werfel, Kaiser.</p>
+
+      <div class="kern">
+        Wenn in einem Gedicht Großstadt, Untergang, Verfall, grelle Farben, Chaos, Ich-Krise und heftige Bildsprache zusammentreffen, ist Expressionismus sehr wahrscheinlich.
+      </div>
+    </section>
+
+    <section class="epoche-card">
+      <div class="epoche-head">
+        <h2>11 · Schneller Vergleich</h2>
+        <div class="zeitraum">Abi-Merker</div>
+      </div>
+
+      <table class="quick-table">
+        <tr>
+          <th>Epoche</th>
+          <th>Zentrum</th>
+          <th>Merksatz</th>
+        </tr>
+        <tr>
+          <td>Aufklärung</td>
+          <td>Vernunft</td>
+          <td>Der Mensch soll selbst denken.</td>
+        </tr>
+        <tr>
+          <td>Sturm und Drang</td>
+          <td>Gefühl & Genie</td>
+          <td>Das freie Ich rebelliert gegen Regeln.</td>
+        </tr>
+        <tr>
+          <td>Klassik</td>
+          <td>Harmonie</td>
+          <td>Gefühl und Vernunft sollen im Gleichgewicht sein.</td>
+        </tr>
+        <tr>
+          <td>Romantik</td>
+          <td>Sehnsucht & Fantasie</td>
+          <td>Die Welt hat eine verborgene, traumhafte Tiefe.</td>
+        </tr>
+        <tr>
+          <td>Vormärz</td>
+          <td>Politik & Kritik</td>
+          <td>Literatur greift ein und kämpft gegen Unterdrückung.</td>
+        </tr>
+        <tr>
+          <td>Biedermeier</td>
+          <td>Privates & Ruhe</td>
+          <td>Rückzug ins Kleine statt politischer Kampf.</td>
+        </tr>
+        <tr>
+          <td>Realismus</td>
+          <td>Wirklichkeit</td>
+          <td>Alltag wird wirklichkeitsnah, aber gestaltet gezeigt.</td>
+        </tr>
+        <tr>
+          <td>Naturalismus</td>
+          <td>Milieu & Elend</td>
+          <td>Die harte soziale Wirklichkeit wird schonungslos gezeigt.</td>
+        </tr>
+        <tr>
+          <td>Stilpluralismus</td>
+          <td>Stimmung & Ästhetik</td>
+          <td>Subjektive Eindrücke und Kunst um der Kunst willen.</td>
+        </tr>
+        <tr>
+          <td>Expressionismus</td>
+          <td>Krise & Aufbruch</td>
+          <td>Großstadt, Krieg, Ich-Zerfall und Weltuntergang.</td>
+        </tr>
+      </table>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  © 2026 Literaturepochen fürs Deutsch-Abi
+</footer>
+
+</body>
+</html>
