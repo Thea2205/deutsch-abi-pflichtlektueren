@@ -10,14 +10,12 @@
   <meta name="author" content="Thea">
   <meta name="robots" content="index, follow">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Abi Pflichtlektüren 2026 – Deutsch Zusammenfassungen">
   <meta property="og:description" content="Kostenlose Zusammenfassungen zu den Deutsch-Abi Pflichtlektüren 2026 mit Analyse, Figuren, Struktur und Deutung.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
 
-  <!-- Optional: später deine echte URL eintragen -->
-  <link rel="canonical" href="https://deine-domain.de/">
+  <link rel="canonical" href="https://thea2205.github.io/deutsch-abi-pflichtlektueren/">
 
   <style>
     :root {
@@ -27,9 +25,14 @@
       --muted: #5f6773;
       --accent: #1e5fb3;
       --accent-dark: #154785;
+      --accent-soft: #e8f1fb;
       --border: #d9e1ea;
       --shadow: 0 10px 24px rgba(0,0,0,0.08);
+      --shadow-strong: 0 18px 40px rgba(8, 29, 63, 0.18);
       --radius: 16px;
+      --radius-lg: 22px;
+      --paypal-1: #0070ba;
+      --paypal-2: #003087;
     }
 
     * {
@@ -87,19 +90,140 @@
       color: rgba(255,255,255,0.92);
     }
 
+    .mini-nav {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .mini-nav a {
+      text-decoration: none;
+      background: rgba(255,255,255,0.12);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      transition: background 0.18s ease, transform 0.18s ease;
+    }
+
+    .mini-nav a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-1px);
+    }
+
     main {
-      padding: 40px 20px 70px;
+      padding: 34px 20px 70px;
     }
 
     .intro-box,
-    .search-box,
-    .info-box {
+    .search-box {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 24px;
       margin-bottom: 28px;
+    }
+
+    .support-box {
+      background: linear-gradient(135deg, #ffffff 0%, #f6faff 100%);
+      border: 1px solid #cfe0f3;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-strong);
+      padding: 28px;
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .support-box::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(30,95,179,0.16) 0%, rgba(30,95,179,0) 72%);
+      pointer-events: none;
+    }
+
+    .support-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .support-copy {
+      flex: 1 1 420px;
+    }
+
+    .support-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      background: #e8f1fb;
+      border: 1px solid #cfe0f3;
+      padding: 7px 11px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .support-box h2 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+
+    .support-box p {
+      margin: 0;
+      color: #46505f;
+      max-width: 680px;
+    }
+
+    .paypal-button {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(135deg, var(--paypal-1) 0%, var(--paypal-2) 100%);
+      padding: 18px 28px;
+      border-radius: 999px;
+      font-size: 18px;
+      font-weight: 700;
+      box-shadow: 0 14px 28px rgba(0, 72, 131, 0.26);
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .paypal-button:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 18px 34px rgba(0, 72, 131, 0.32);
+      filter: brightness(1.03);
+    }
+
+    .paypal-icon {
+      width: 22px;
+      height: 22px;
+      display: inline-block;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
     }
 
     h2 {
@@ -129,6 +253,7 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       outline: none;
+      background: #fff;
     }
 
     .search-row input:focus {
@@ -204,32 +329,10 @@
       display: none;
     }
 
-    .seo-list {
-      margin: 0;
-      padding-left: 20px;
-    }
-
     footer {
       padding: 30px 20px 50px;
       text-align: center;
       color: #707784;
-      font-size: 14px;
-    }
-
-    .mini-nav {
-      margin-top: 18px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .mini-nav a {
-      text-decoration: none;
-      background: rgba(255,255,255,0.12);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.18);
-      padding: 10px 14px;
-      border-radius: 999px;
       font-size: 14px;
     }
 
@@ -245,16 +348,27 @@
       .hero p {
         font-size: 17px;
       }
+
+      .support-box h2 {
+        font-size: 26px;
+      }
+
+      .support-inner {
+        align-items: flex-start;
+      }
+
+      .paypal-button {
+        width: 100%;
+      }
     }
   </style>
 
-  <!-- Strukturierte Daten für Google -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Abi Pflichtlektüren 2026",
-    "url": "https://deine-domain.de/",
+    "url": "https://thea2205.github.io/deutsch-abi-pflichtlektueren/",
     "inLanguage": "de",
     "description": "Kostenlose Zusammenfassungen zu den Deutsch-Abi Pflichtlektüren 2026 mit Analyse, Figuren, Struktur und Deutung."
   }
@@ -287,6 +401,24 @@
   <main>
     <div class="wrap">
 
+      <section class="support-box" aria-labelledby="support-title">
+        <div class="support-inner">
+          <div class="support-copy">
+            <span class="support-badge">Freiwillige Unterstützung</span>
+            <h2 id="support-title">Wenn dir die Zusammenfassungen helfen, kannst du mich unterstützen</h2>
+            <p>
+              Die Inhalte sind kostenlos. Wenn du magst, kannst du mir über PayPal eine kleine
+              Spende dalassen und damit helfen, weitere verständliche Abi-Zusammenfassungen zu erstellen.
+            </p>
+          </div>
+
+          <a class="paypal-button" href="https://www.paypal.com/paypalme/AntheaSchrafstetter" target="_blank" rel="noopener noreferrer">
+            <span class="paypal-icon">❤</span>
+            Mit PayPal unterstützen
+          </a>
+        </div>
+      </section>
+
       <section class="intro-box">
         <h2>Welche Pflichtlektüren gibt es ab 2026?</h2>
         <p>
@@ -312,10 +444,6 @@
             aria-label="Lektüren durchsuchen"
           >
         </div>
-
-        <p class="search-note">
-          Diese Suche filtert die Karten auf der Startseite. Die eigentliche Google-Sichtbarkeit kommt durch den Seiteninhalt, Titel, Beschreibung und spätere Indexierung.
-        </p>
       </section>
 
       <section id="lektueren">
