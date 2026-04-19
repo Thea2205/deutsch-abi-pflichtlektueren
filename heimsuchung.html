@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Jenny Erpenbeck – Heimsuchung · Master-Zusammenfassung</title>
+<style>
+  :root {
+    --c-inhalt: #1e5fb3;
+    --c-inhalt-bg: #e8f1fb;
+    --c-figur: #1f7a42;
+    --c-figur-bg: #e6f3ec;
+    --c-deutung: #6b2d9e;
+    --c-deutung-bg: #f1e8fa;
+    --c-struktur: #b5341a;
+    --c-struktur-bg: #fbe9e3;
+    --c-bio: #b2740d;
+    --c-bio-bg: #fdf3e0;
+    --c-kern: #8a6d00;
+    --c-kern-bg: #fff7c2;
+    --c-neutral: #222;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 30px 40px 80px;
+    color: #1a1a1a;
+    line-height: 1.55;
+    background: #fafafa;
+  }
+  h1 {
+    font-size: 30px;
+    color: #0f0f0f;
+    border-bottom: 4px solid #1a1a1a;
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+  }
+  h1 + .sub {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 30px;
+  }
+  h2 {
+    background: #1a1a1a;
+    color: white;
+    padding: 10px 16px;
+    font-size: 22px;
+    margin-top: 45px;
+    border-radius: 4px;
+  }
+  h3 {
+    color: #1a1a1a;
+    font-size: 19px;
+    margin-top: 28px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 4px;
+  }
+  h4 {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    color: #333;
+  }
+  p { margin: 8px 0; }
+  ul, ol { margin: 8px 0; padding-left: 22px; }
+  li { margin-bottom: 4px; }
+  code { background: #f0f0f0; padding: 1px 5px; border-radius: 3px; font-size: 0.9em; }
+
+  /* Legend */
+  .legend {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 30px;
+  }
+  .legend h3 { margin-top: 0; border: none; }
+  .legend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 18px;
+    font-size: 14px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 8px; }
+  .swatch {
+    width: 18px; height: 18px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  /* Content boxes */
+  .box {
+    border-left: 5px solid;
+    background: white;
+    padding: 10px 16px;
+    margin: 12px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .box .label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    color: white;
+  }
+
+  .inhalt { border-color: var(--c-inhalt); background: var(--c-inhalt-bg); }
+  .inhalt .label { background: var(--c-inhalt); }
+
+  .figur { border-color: var(--c-figur); background: var(--c-figur-bg); }
+  .figur .label { background: var(--c-figur); }
+
+  .deutung { border-color: var(--c-deutung); background: var(--c-deutung-bg); }
+  .deutung .label { background: var(--c-deutung); }
+
+  .struktur { border-color: var(--c-struktur); background: var(--c-struktur-bg); }
+  .struktur .label { background: var(--c-struktur); }
+
+  .bio { border-color: var(--c-bio); background: var(--c-bio-bg); }
+  .bio .label { background: var(--c-bio); }
+
+  .kern {
+    border-left: 5px solid var(--c-kern);
+    background: var(--c-kern-bg);
+    padding: 10px 16px;
+    margin: 14px 0;
+    font-weight: 500;
+    border-radius: 0 4px 4px 0;
+  }
+  .kern::before {
+    content: "★ KERNIDEE  ";
+    font-weight: 700;
+    color: var(--c-kern);
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .zitat {
+    border-left: 3px solid #888;
+    padding: 6px 14px;
+    margin: 8px 0 8px 12px;
+    color: #333;
+    font-style: italic;
+    background: #fdfdfd;
+  }
+
+  /* Figure card */
+  .figur-card {
+    background: white;
+    border: 1px solid #ccc;
+    border-left: 6px solid var(--c-figur);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 18px 0;
+  }
+  .figur-card h3 {
+    margin-top: 0;
+    color: var(--c-figur);
+    border-bottom: 1px dashed #c8e0d1;
+    padding-bottom: 4px;
+  }
+  .figur-card .heimatbegriff {
+    background: var(--c-deutung-bg);
+    border-left: 3px solid var(--c-deutung);
+    padding: 6px 12px;
+    margin-top: 8px;
+    font-size: 0.95em;
+  }
+  .figur-card .heimatbegriff strong { color: var(--c-deutung); }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 14px 0;
+    background: white;
+    font-size: 14px;
+  }
+  th, td {
+    border: 1px solid #d0d0d0;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #eee; }
+
+  .toc {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 14px 24px;
+    border-radius: 4px;
+    margin: 20px 0 30px;
+    column-count: 2;
+    column-gap: 30px;
+  }
+  .toc a { color: #1e5fb3; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .toc ol { padding-left: 18px; }
+
+  @media print {
+    body { background: white; padding: 20px; }
+    h2 { page-break-after: avoid; }
+    .figur-card, .box, .kern { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Jenny Erpenbeck: <em>Heimsuchung</em></h1>
+<p class="sub">Master-Zusammenfassung fürs Abitur · Inhalt · Figuren · Struktur · Deutung</p>
+
+<!-- LEGEND -->
+<div class="legend">
+  <h3>Farb-Legende – so liest du dieses Skript</h3>
+  <div class="legend-grid">
+    <div class="legend-item"><span class="swatch" style="background:var(--c-inhalt)"></span><b>Blau</b> – Inhalt / Handlung (Was passiert?)</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--c-figur)"></span><b>Grün</b> – Figur / Personenkonstellation</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--c-deutung)"></span><b>Lila</b> – Deutung / Symbolik / Sinn</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--c-struktur)"></span><b>Rot</b> – Struktur / Erzähltechnik / Form</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--c-bio)"></span><b>Orange</b> – Biografie / Historischer Hintergrund</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--c-kern)"></span><b>Gelb</b> – Kernidee / Merksatz / zentrales Zitat</div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <strong>Inhaltsübersicht</strong>
+  <ol>
+    <li><a href="#s1">Kompaktüberblick</a></li>
+    <li><a href="#s2">Autobiografischer Hintergrund</a></li>
+    <li><a href="#s3">Aufbau, Titel, Motti, Widmung</a></li>
+    <li><a href="#s4">Sprache & Erzähltechnik</a></li>
+    <li><a href="#s5">Chronologischer Inhalt</a></li>
+    <li><a href="#s6">Die Figuren im Detail</a></li>
+    <li><a href="#s7">Schlüsselszenen</a></li>
+    <li><a href="#s8">Themen & Deutung</a></li>
+    <li><a href="#s9">Familienverflechtungen</a></li>
+    <li><a href="#s10">Merksätze fürs Abi</a></li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s1">1 · Kompaktüberblick</h2>
+
+<div class="box inhalt">
+  <span class="label">Inhalt</span>
+  <p><b>Schauplatz:</b> ein Grundstück mit Haus am <b>Scharmützelsee</b> südöstlich von Berlin.</p>
+  <p><b>Zeitraum:</b> rund 100 Jahre deutscher Geschichte – Weimarer Republik, Nationalsozialismus, Zweiter Weltkrieg, DDR, Wiedervereinigung.</p>
+  <p><b>Erscheinungsjahr:</b> 2007.</p>
+  <p><b>Handlung:</b> Zwölf Figuren kommen und gehen. Alle suchen Heimat, Glück oder Sicherheit – fast alle werden von Geschichte, Gewalt oder Politik wieder vertrieben. Das Grundstück bleibt, die Menschen wechseln.</p>
+</div>
+
+<div class="kern">
+  <em>Heimsuchung</em> zeigt, dass Menschen Heimat suchen, aber von Geschichte, Verlust und Zeit immer wieder aus ihr vertrieben werden, sodass am Ende oft nur Erinnerung bleibt.
+</div>
+
+<div class="box struktur">
+  <span class="label">Struktur</span>
+  <p><b>Rahmen:</b> Ein nüchtern-geologischer <b>Prolog</b> über die Entstehung des Sees vor 24.000 Jahren und ein sachlich-technischer <b>Epilog</b> über den Abriss des Hauses bilden die Klammer. Dazwischen 12 Figuren-Kapitel, unterbrochen vom immer wiederkehrenden <b>Gärtner</b>.</p>
+  <p><b>Der Gärtner</b> ist das einzige Kontinuum – ihm ist die Hälfte aller Kapitel gewidmet, als Brücke zwischen den übrigen 11.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s2">2 · Autobiografischer Hintergrund</h2>
+
+<div class="box bio">
+  <span class="label">Biografie</span>
+  <p>Jenny Erpenbeck (* 12. März 1967, Ost-Berlin) schreibt <em>Heimsuchung</em> aus einer sehr persönlichen Erfahrung heraus: Sie hat das reale Sommerhaus ihrer Familie am Scharmützelsee nach der Wende durch Restitution verloren.</p>
+
+  <blockquote class="zitat">„Ich gebe zu, dass es ein solches Haus in Wirklichkeit gegeben hat. Dass wir es … durch die Restitution … an den Alteigentümer verloren haben und ich heimgesucht worden bin, insofern, als ich über Monate hinweg von dem Haus geträumt habe.“ (Jenny Erpenbeck)</blockquote>
+</div>
+
+<h3>Reale Vorbilder für Romanfiguren</h3>
+<table>
+  <tr><th>Romanfigur</th><th>Reale Vorlage</th></tr>
+  <tr><td><b>Die Schriftstellerin</b></td><td>Hedda Zinner (1905–1994), jüdische Kommunistin, Großmutter väterlicherseits</td></tr>
+  <tr><td><b>Schriftsteller-Ehemann</b></td><td>Fritz Erpenbeck (1897–1975)</td></tr>
+  <tr><td><b>Sohn der Schriftstellerin</b></td><td>Erpenbecks Vater (1942 in Ufa geboren, Biophysiker & Romanautor)</td></tr>
+  <tr><td><b>Die Besucherin</b></td><td>Die mütterliche Urgroßmutter (Bäuerin aus Masuren/Ostpreußen)</td></tr>
+  <tr><td><b>Jüdischer Tuchfabrikant</b></td><td>Heinz Engel (Guben); 1939 zum Verkauf gezwungen, Familie ermordet</td></tr>
+  <tr><td><b>Doris (Mädchen)</b></td><td><b>Doris Kaplan</b> (1931–1942), Nichte Engels – der Roman ist ihr gewidmet</td></tr>
+  <tr><td><b>Kinderfreund</b> & <b>unberechtigte Eigenbesitzerin</b></td><td>Jenny Erpenbeck selbst (Kindheit / Erwachsenenperspektive)</td></tr>
+</table>
+
+<div class="box bio">
+  <span class="label">Historisches</span>
+  <p><b>Reale Vorgeschichte:</b> 1935 flohen Hedda Zinner und Fritz Erpenbeck ins Moskauer Exil, wurden vom Dichter Johannes Becher (später DDR-Kulturminister) vor den stalinistischen Säuberungen versteckt und kehrten 1945 nach Berlin zurück. 1950 Sommerhaus am Scharmützelsee (erbaut 1936 vom Berliner Architekten – der die reale Vorlage der Romanfigur ist).</p>
+  <p><b>Familienbruch 1989:</b> Für die Erpenbecks bedeutete das Ende der DDR einen tiefen Einschnitt – Verlag pleite, Bücher nicht mehr aufgelegt, Mutter (Doris Kilias, Arabistik-Professorin) 1995 entlassen. Der Roman ist auch <b>Wendeliteratur</b>.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s3">3 · Aufbau, Titel, Motti, Widmung</h2>
+
+<h3>Die Widmung: „Für Doris Kaplan“</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Doris Kaplan war ein reales jüdisches Mädchen, 1942 mit 12 Jahren ermordet. Erpenbeck setzt ihr durch die Widmung einen <b>literarischen Stolperstein</b> – ein Akt des Erinnerns gegen das Vergessen. Die Widmung ist nicht Beiwerk, sondern Schlüssel zur moralischen Haltung des Romans.</p>
+</div>
+
+<h3>Der Titel <em>Heimsuchung</em> – absichtlich doppeldeutig</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <ol>
+    <li><b>Heim-Suche:</b> Die Figuren suchen alle nach einem Ort, an dem sie „heim“ und dauerhaft glücklich werden können.</li>
+    <li><b>Heimsuchung als Schicksalsschlag:</b> Alle werden von etwas Unkontrollierbarem getroffen – Krieg, Verfolgung, Vertreibung, Enteignung.</li>
+  </ol>
+  <p>Der Titel bündelt beides: <b>Die Menschen suchen Heimat – und werden zugleich von der Geschichte heimgesucht.</b></p>
+</div>
+
+<h3>Die drei Motto-Zitate am Romananfang</h3>
+<table>
+  <tr><th>Motto</th><th>Aussage</th></tr>
+  <tr><td>Büchner (<em>Woyzeck</em>)</td><td>Menschen bleiben nur <b>für eine gewisse Zeit</b> an einem Ort – dann gehen sie, andere kommen.</td></tr>
+  <tr><td>Hölderlin</td><td>Sehnsucht nach Ruhe, Ankommen, Rückkehr, Heilung in der heimatlichen Landschaft.</td></tr>
+  <tr><td>Arabisches Sprichwort</td><td>„<b>Wenn das Haus fertig ist, kommt der Tod.</b>“ – Sobald man glaubt anzukommen, ist das Ende mitgedacht.</td></tr>
+</table>
+
+<h3>Prolog & Epilog – der große Rahmen</h3>
+<div class="box struktur">
+  <span class="label">Struktur</span>
+  <p><b>Prolog:</b> Geologie, Eiszeit, Entstehung des Sees vor 24.000 Jahren – in Fachsprache. Menschheitsgeschichte wird radikal relativiert: 100 Jahre sind nichts gegenüber der Erdgeschichte.</p>
+  <p><b>Epilog:</b> Bautechnischer Bericht über den Abriss. Dieselbe Nüchternheit. Das Haus, das für so viele Hoffnungen stand, wird einfach abgetragen, sortiert, entsorgt.</p>
+</div>
+
+<div class="kern">
+  Natur kommt vor dem Menschen – und bleibt, wenn der Mensch wieder weg ist. Besitz ist zeitlich begrenzt, die Landschaft überdauert.
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s4">4 · Sprache & Erzähltechnik</h2>
+
+<div class="box struktur">
+  <span class="label">Struktur</span>
+  <p>Erpenbeck schreibt nach den Regeln der <b>modernen Literatur</b>: Es gibt keinen allwissenden Erzähler mehr, der alles objektiv und vollständig erklärt. Stattdessen erlebt der Leser Wirklichkeit nur in <b>subjektiven Einzelausschnitten</b>.</p>
+</div>
+
+<h3>Kennzeichen modernen Erzählens</h3>
+<ul>
+  <li><b>Wechsel der Erzählperspektive</b> (Sicht ändert sich von Kapitel zu Kapitel)</li>
+  <li><b>Wechsel von Erzählstil</b> (neutral ↔ personal) <b>und Erzählhaltung</b> (distanziert ↔ mitfühlend)</li>
+  <li>Verwendung von <b>innerem Monolog</b> (1. Pers. Präsens, kein Erzähler) und vor allem <b>erlebter Rede</b> (3. Pers. Präteritum, Verschmelzung von Figur und Erzähler)</li>
+  <li><b>Fragmentarisches Erzählen</b> – kein schlüssiges Gesamtbild</li>
+  <li><b>Nüchternheit bei Schreckensszenen</b> – gerade das macht sie erschütternd</li>
+</ul>
+
+<h3>Erlebte Rede – Erpenbecks Lieblingsform</h3>
+<div class="box struktur">
+  <span class="label">Struktur</span>
+  <p>Statt „Heimat planen, das ist mein Beruf“ (Ich-Erzähler) schreibt Erpenbeck „Heimat planen, das ist <b>sein</b> Beruf“ (S. 38). Das ist erlebte Rede: 3. Person, Präteritum, aber eigentlich die Gedanken der Figur.</p>
+  <p><b>Wirkung:</b> Verunsicherung des Lesers – wer spricht gerade? Figur oder Erzähler? Diese Unschärfe ist gewollt.</p>
+</div>
+
+<h3>Fragmentarisches Erzählen – Beispiele</h3>
+<div class="box inhalt">
+  <span class="label">Beispiel</span>
+  <ul>
+    <li><b>Die Unterpächter:</b> Die Frau bricht weinend zusammen (S. 142). Der Grund – ihr Flüchtlingsschicksal – wird erst <b>5 Seiten später</b> genannt.</li>
+    <li><b>Gefängnisbesuch:</b> Warum sitzt der Mann im Gefängnis? Erst 10 Seiten später erfährt man: Republikflucht.</li>
+  </ul>
+  <p>Der Leser versteht vieles erst im Rückblick – wie die Figuren selbst.</p>
+</div>
+
+<h3>Frequenz & Wiederholungen</h3>
+<div class="box struktur">
+  <span class="label">Struktur</span>
+  <p>Dieselben Ereignisse werden aus <b>verschiedenen Perspektiven</b> erzählt:</p>
+  <ul>
+    <li><b>Kauf des Nachbargrundstücks:</b> einmal aus Sicht des Architekten (S. 43 f.), einmal aus Sicht des Tuchfabrikanten (S. 60) – zeigt Trennendes und Verbindendes.</li>
+    <li><b>Versteck im Wandschrank:</b> zuerst die Frau des Architekten (S. 73), später die Enkelin (S. 179) – Generationen-Brücke.</li>
+  </ul>
+  <p>Wiederholungen strukturieren, verknüpfen Erzählstränge und schaffen den „roten Faden“.</p>
+</div>
+
+<h3>Fachsprachen als Stilmittel</h3>
+<p>Der Roman nutzt bewusst <b>sachlich-nüchterne Fachsprachen</b>: Geologie (Prolog), Jura („unberechtigte Eigenbesitzerin“, ab S. 172), Bautechnik (Epilog). Auch der Gaswagen-Bericht (S. 60) bleibt kommentarlos. Die Nüchternheit wirkt durch das Fehlen von Empörung umso brutaler.</p>
+
+<div class="kern">
+  Die zerbrochene Form des Romans spiegelt die Grundaussage: Die moderne Welt bietet kein ganzheitliches Bild mehr, keine sichere Ordnung, kein verbindliches Wertesystem.
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s5">5 · Chronologischer Inhalt</h2>
+
+<p><em>Im Roman sind die Kapitel nicht chronologisch. Hier die Handlung zeitlich geordnet.</em></p>
+
+<h3>5.1 · Anfang: Der Großbauer und seine vier Töchter (nach dem 1. Weltkrieg)</h3>
+<div class="box inhalt">
+  <span class="label">Inhalt</span>
+  <p>Der Großbauer <b>Wurrach</b> herrscht autoritär über seine vier Töchter in einer Welt aus Tradition, Aberglauben und Zwängen. Kein männlicher Erbe → seine Linie endet mit ihm.</p>
+  <ul>
+    <li><b>Grete</b> bleibt unverheiratet; ihr Verlobter wird enterbt.</li>
+    <li><b>Hedwig</b> wird schwanger vom Wanderarbeiter; der Vater verjagt ihn, sperrt sie in die Räucherkammer, wo sie ihr Kind verliert.</li>
+    <li><b>Emma</b> wäre die fähigste Erbin – aber sie ist eine Frau.</li>
+    <li><b>Klara</b> verliebt sich in einen Fischer, zerbricht psychisch, wird vom Vater entmündigt, ertränkt sich. Ihr geerbter Waldbesitz am See wird in <b>drei Parzellen</b> verkauft: an einen Kaffee-/Teeimporteur, an einen jüdischen Tuchfabrikanten und an einen Berliner Architekten.</li>
+  </ul>
+</div>
+
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Die Geschichte vom Großbauern steht als <b>böses Omen</b> am Anfang: patriarchale Gewalt, ökonomischer Verfall, verlorenes Leben. Schon hier zerbrechen Kontinuität und familiäre Verbundenheit.</p>
+</div>
+
+<h3>5.2 · Der Architekt baut das Haus (ab 1936)</h3>
+<div class="box inhalt">
+  <span class="label">Inhalt</span>
+  <p>Der Architekt baut 1936 ein Wochenend- und Sommerhaus – mit verborgenem Zimmer im Schrank. Das Grundstück läuft formal auf seine <b>zweite (zukünftige) Frau</b>, damit es bei der Scheidung nicht an die erste Frau und den Sohn fällt. Erst danach lässt er sich scheiden.</p>
+  <p>1939 kauft er <b>die Nachbarparzelle des jüdischen Tuchfabrikanten</b> – mit Steg und Badehaus – zum <b>halben Preis</b>, weil dieser das Geld dringend für die Flucht braucht.</p>
+  <p>Im Dritten Reich und in der DDR passt er sich taktisch an. 1951 flieht er wegen einer Lappalie (eine Tonne Messingschrauben aus dem Westen) in den Westen.</p>
+</div>
+
+<h3>5.3 · Die jüdische Familie Ludwig und Doris (bis 1942)</h3>
+<div class="box inhalt">
+  <span class="label">Inhalt</span>
+  <p><b>Der Tuchfabrikant</b> hat das Grundstück am See bebaut (Steg, Badehaus). Sein Sohn <b>Ludwig</b> erkennt die Gefahr früh und wandert 1936 mit Frau Anna nach <b>Kapstadt</b> aus; dort werden Elliot und Elisabeth (1942 – benannt nach Ludwigs toter Schwester) geboren.</p>
+  <p>1937 besuchen Ludwigs Eltern ihn in Kapstadt – <b>sie kehren trotzdem nach Deutschland zurück</b>: der tödliche Fehler. 1939: Verkauf des Grundstücks an den Architekten unter Wert; 1940: Pässe da, aber Geld auf Sperrkonto; die Eltern werden im <b>Gaswagen</b> ermordet.</p>
+  <p>1941 werden Ludwigs Schwester Elisabeth und ihre Tochter <b>Doris</b> ins Warschauer Ghetto deportiert. Elisabeths Mann stirbt 1941 bei der Zwangsarbeit am Autobahnbau an Flecktyphus. 1942 verschwindet Elisabeth (von einer Besorgung kehrt sie nicht zurück); Doris versteckt sich zwei Tage in einer dunklen Kammer, wird entdeckt und in Treblinka erschossen – mit zwölf Jahren.</p>
+</div>
+
+<h3>5.4 · Der Rotarmist & die Frau des Architekten (April 1945)</h3>
+<div class="box inhalt">
+  <span class="label">Inhalt</span>
+  <p>Die Rote Armee besetzt das Haus. Ein <b>junger sowjetischer Major</b> (mit 15 freiwillig gemeldet, mit 17 bereits Major, die ganze Familie von Deutschen ermordet) entdeckt die Frau des Architekten in ihrem Schrankzimmer-Versteck. Der Geruch nach <b>Pfefferminz und Kampfer</b> (ihre Wechseljahre-Einreibung) erinnert ihn an Krankheit, Ruhe, Mutter.</p>
+  <p>Es kommt zu einer sexuellen Begegnung, in der die Täter-Opfer-Rollen ineinander verschwimmen. Der Major sagt: <b>„Mama.“</b> Das bohrt „ein Loch in ihre Ewigkeit“. Er gibt ihr Brot, verrät sie nicht und geht.</p>
+</div>
+
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Keine einfache Vergewaltigungsszene: Er ist bewaffnet und übermächtig – zugleich ein verlorenes Kind. Sie übernimmt emotional die Führung, und das Wort „Mama“ legt ihren <b>verdrängten Schmerz über die erzwungene Kinderlosigkeit</b> schlagartig frei. Ihr Mann wollte keine Kinder; im Haus gibt es kein Kinderzimmer. Der Krieg bricht eine Leerstelle auf, die die Ehe nie berührt hat.</p>
+</div>
+
+<h3>5.5 · Die Schriftstellerin in der DDR (ab 1945)</h3>
+<div class="box inhalt">
+  <span class="label">Inhalt</span>
+  <p>Die jüdische Kommunistin kehrt mit Mann und in Ufa geborenem Sohn aus dem sowjetischen Exil zurück. Sie pachtet, dann kauft das Haus (Vetternwirtschaft). Lebt dort mit Mann, Sohn, Schwiegertochter und Enkelin <b>(Jenny Erpenbeck)</b>.</p>
+  <p>Ihr Ehemann stirbt im Krankenhaus – Gerücht: ein junger Arzt vom Nachbargrundstück habe „nachgeholfen“. Derselbe Arzt baut sich, von oben gedeckt, ein Wohnhaus statt des erlaubten Bienenhauses (S. 113). Die Schriftstellerin verliert ihren Glauben an das sozialistische Ideal. Sie schreibt 1989 – kurz vor der Wende – ihre Erinnerungen, aber mit bewussten Auslassungen. Nach ihrem Tod trägt der Sohn seine Tochter als Miteigentümerin ein.</p>
+</div>
+
+<h3>5.6 · Die Besucherin – Flucht aus Ostpreußen (ab 1945)</h3>
+<div class="box inhalt">
+  <span class="label">Inhalt</span>
+  <p>Die Bäuerin aus Masuren: Ehemann (Ukrainer, Musiker) früh bei Unfall gestorben; Tochter im Krieg verschollen. Sie arbeitet weiter als <b>Magd auf dem eigenen Hof</b> (jetzt von Polen besetzt), in der Hoffnung, ihre Tochter kehre zurück. 1945 flieht sie mit drei Enkelinnen nach Berlin. Die jüngste Enkelin heiratet später den Sohn der Schriftstellerin – wird zur Mutter Jenny Erpenbecks.</p>
+  <p>Sie verbringt fünf Sommer beim Schriftsteller-Ehepaar am See, gesiezt, aber zufrieden.</p>
+</div>
+
+<h3>5.7 · Die Unterpächter (um 1990)</h3>
+<div class="box inhalt">
+  <span class="label">Inhalt</span>
+  <p>Segelbegeistertes Ehepaar pachtet die Werkstatt als Wochenend-Schlafplatz. Der Mann hatte als Student dilettantisch über die Elbe in den Westen flüchten wollen; sein Freund ertrank, er kam ins Gefängnis. Extern legt er die Bauingenieurs-Prüfung erfolgreich ab, bleibt aber einfacher Arbeiter ohne Ziele – „ständige Zwischenlösung“.</p>
+  <p>Die Frau erfährt telefonisch: ihre vermeintlichen Eltern waren <b>nur Zieheltern</b>, sie ist ein Flüchtlingskind, hat eine Schwester. Der Mann verweigert jede Unterstützung.</p>
+</div>
+
+<h3>5.8 · Der Kinderfreund (1970er/80er)</h3>
+<div class="box inhalt">
+  <span class="label">Inhalt</span>
+  <p>Der Nachbarsjunge ist mit fünf Jahren, als er die vierjährige Enkelin kennenlernt, fasziniert von ihr. Er wartet regelmäßig, bis ihre Familie gefrühstückt hat (Standesunterschied). Um 1980 herum werden beide vom Neffen eines Direktors zum heimlichen Beobachten einer Vergewaltigung einer 12-Jährigen eingeladen. Der Satz „<em>Daß man an einem Ort durch gemeinsame Gier und Scham gründlicher festgeknüpft wird als durch gemeinsames Glück …</em>“ (S. 165) fasst sein Erleben zusammen.</p>
+  <p>Er versteht zu spät, dass sie dort nur Ferien machte. Er bleibt zurück, sie heiratet einen anderen.</p>
+</div>
+
+<h3>5.9 · Wende, Restitution, Abriss (ab 1990)</h3>
+<div class="box inhalt">
+  <span class="label">Inhalt</span>
+  <p>Die Erben der Architektengattin (auf deren Namen das Grundstück seit 1936 lief) setzen juristisch die Rückgabe durch. Die Enkelin der Schriftstellerin wird zur <b>„unberechtigten Eigenbesitzerin“</b> erklärt. Sie gibt den Schlüssel nicht zurück, zieht sich ins Schrankzimmer (ihr „Vögelchenzimmer“ aus Kindertagen) zurück, beobachtet die Maklergespräche, <b>putzt</b> das heruntergekommene Haus gründlich und schließt zuletzt alle Türen ab. Das Haus wird verkauft und im Epilog abgerissen.</p>
+</div>
+
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Das Putzen ist praktisch sinnlos (das Haus wird abgerissen), aber symbolisch zentral: <b>Ritueller Abschied</b>, fast eine Leichenwäsche. Bei den Azteken (S. 184) galt Fegen als heilige Handlung; beim Großbauern Wurrach war Fegen Teil des Totenrituals. Das Haus wird wie ein Familienkörper bestattet.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s6">6 · Die Figuren im Detail</h2>
+
+<!-- GÄRTNER -->
+<div class="figur-card">
+  <h3>Der Gärtner – das einzige Kontinuum</h3>
+  <p><b>Charakter:</b> alterslos, schweigsam, fleißig, kompetent, bescheiden. Kein Name, unbekannte Herkunft („Vielleicht war er schon immer da“, S. 13). Wohnt zuerst in verlassener Jagdhütte, dann im Bienenhaus auf dem Grundstück. Besitzlos, sozial nicht integriert, aber geschätzt.</p>
+  <p><b>Rolle:</b> Bewahrt und kultiviert die Natur. Lebt im Einklang mit dem Jahreszeiten-Kreislauf. Die Hälfte aller Romankapitel gehört ihm; er verbindet als einzige Dauer-Figur die übrigen 11 Kapitel.</p>
+  <p><b>Ende:</b> Stürzt bei der Kirschernte von der Leiter, bricht sich das Bein (S. 124). Danach Vernachlässigung, Pilzbefall der Obstbäume, Verfall. Er verschwindet spurlos – „wie eine enttäuschte Gottesfigur“ (Westermann).</p>
+
+  <div class="heimatbegriff">
+    <strong>Heimatmodell:</strong> Natur, nicht Besitz. Der Gärtner ist die einzige wirklich <b>glückliche</b> Figur – Gegenbild zum hektischen, gierigen modernen Menschen. Fast mythologische Gestalt außerhalb der Geschichte.
+  </div>
+</div>
+
+<!-- GROSSBAUER -->
+<div class="figur-card">
+  <h3>Der Großbauer (Wurrach)</h3>
+  <p><b>Charakter:</b> autoritär, wohlhabend, traditionsgebunden, verwitwet. Strenge Rituale, normative Regeln – die wichtigsten Wörter bei Hochzeiten sind „darf“ und „muss“.</p>
+  <p><b>Schicksal:</b> Vier Töchter, kein männlicher Erbe → Ende seiner Linie. Selbstmord Klaras kommentarlos: „Wenig später wird auch ihr Leichnam gefunden“ (S. 25).</p>
+
+  <div class="heimatbegriff">
+    <strong>Heimatmodell:</strong> Heimat als patriarchaler Besitz und Tradition – zerbricht an der Biologie (keine Söhne) und der eigenen Gewalt. Böses Omen für das Folgende.
+  </div>
+</div>
+
+<!-- ARCHITEKT -->
+<div class="figur-card">
+  <h3>Der Architekt</h3>
+  <p><b>Charakter:</b> aktiv, selbstbewusst, kompetent, gastfreundlich – aber <b>opportunistisch</b>. Arrangiert sich mit dem NS-Regime und später mit der DDR.</p>
+  <p><b>Leitidee:</b> „Heimat planen, das ist sein Beruf. Vier Wände um ein Stück Luft, ein Stück Luft sich mit steinerner Kralle … herausreißen, und dingfest machen. Heimat. Ein Haus, die <b>dritte Haut</b>, nach der Haut aus Fleisch und der Kleidung.“ (S. 38)</p>
+  <p><b>Schicksal:</b> 1951 bei einem vergleichsweise harmlosen DDR-Vorfall (Messingschrauben aus dem Westen) Flucht; muss das selbstgebaute Haus zurücklassen. „Drei Dimensionen waren bisher sein Beruf … aber die vierte hat ihn eingeholt, die Zeit“ (S. 37).</p>
+
+  <div class="heimatbegriff">
+    <strong>Heimatmodell:</strong> Heimat durch Besitz, Planung, Architektur, Kontrolle. Scheitert. Ausgerechnet der Heimat-Bauer wird selbst heimatlos – moralisch zusätzlich belastet durch den Kauf des jüdischen Grundstücks unter Wert.
+  </div>
+</div>
+
+<!-- FRAU DES ARCHITEKTEN -->
+<div class="figur-card">
+  <h3>Die Frau des Architekten</h3>
+  <p><b>Charakter:</b> Jüngstes Kind eines Großkonsuls; Kindheitsträume: Seiltänzerin, Dompteurin – Bewegung, Freiheit, Lachen. Wird vom Vater zur Stenotypistin bestimmt.</p>
+  <p><b>Ehe:</b> Lernt den noch verheirateten Architekten bei der Arbeit kennen. Lange Wartezeit, viel Weinen. Unterzeichnet den Kaufvertrag. Die Ehe bleibt vom Mann gewollt <b>kinderlos</b>. Sie „wirft sich mit ihrer Lust an Bewegung in die Sesshaftigkeit hinein“ – paradox.</p>
+  <p><b>Schlüsselerlebnis 1945:</b> Begegnung mit dem jungen Major im Schrankzimmer. Das Wort „Mama“ legt ihre verdrängte Kinderlosigkeit frei.</p>
+
+  <div class="heimatbegriff">
+    <strong>Heimatmodell:</strong> Heimat als Anpassung an den Mann – um den Preis der eigenen Träume und der Mutterschaft. Ihre „Ewigkeit bekommt ein Loch“, als die Verdrängung durchbricht.
+  </div>
+</div>
+
+<!-- ROTARMIST -->
+<div class="figur-card">
+  <h3>Der Rotarmist / junge Major</h3>
+  <p><b>Charakter:</b> Seine gesamte Familie wurde von Deutschen ermordet und verbrannt. Mit 15 freiwillig gemeldet aus Rache, mit 17 schon Major. Traumatisiert, einsam, heimatlos.</p>
+  <p><b>Schlüsselszene:</b> Erste Sexualität überhaupt – mit einer Frau, die ihn an seine tote Mutter erinnert.</p>
+  <blockquote class="zitat">„Der junge Mann ist durch den Krieg einsam und heimatlos geworden; er sucht Ruhe und Geborgenheit und in der deutschen Frau die Mutter, aber auch Lust und Begierde.“ (Königs)</blockquote>
+
+  <div class="heimatbegriff">
+    <strong>Heimatmodell:</strong> Heimat als verlorenes russisches Dorf mit der ermordeten Familie – unwiederbringlich. Sucht Ersatz in Mutterfigur/Geborgenheit.
+  </div>
+</div>
+
+<!-- TUCHFABRIKANT / LUDWIG -->
+<div class="figur-card">
+  <h3>Der Tuchfabrikant &amp; Ludwig (die jüdische Familie)</h3>
+  <p><b>Ludwig:</b> Jüdischer Tuchfabrikanten-Sohn, heiratet Anna. Erkennt die Gefahr für Juden realistisch und emigriert schon <b>März 1936</b> nach Kapstadt; zwei Kinder Elliot und Elisabeth werden dort geboren.</p>
+  <p><b>Die Familie:</b> Eltern besuchen 1937 Kapstadt, kehren aber zurück – ihr tödlicher Fehler. 1940 sind sie im Gaswagen ermordet. Schwester Elisabeth und Nichte Doris 1941 ins Warschauer Ghetto deportiert.</p>
+  <p><b>Identitätsverlust Ludwigs:</b> Mischsprache aus Deutsch und Englisch. „Daheim hat er gern Klavier gespielt. Daheim war er Tuchmacher. Hier hat er eine Autowerkstatt eröffnet und sich spezialisiert auf Kupplungen und Bremsen.“ (S. 55). Tochterfrage: „Why does lametta hang on the tree?“ – „It is supposed to look as if der Baum in einem verschneiten Winterwald stünde.“ Sein Leben ist „Vertreibung ins Paradies“ (S. 55).</p>
+  <p><b>Parallele:</b> In Südafrika wird der Gärtner per Bleistifttest als „coloured“ markiert – wie seine Familie einst das rote „J“ für Jude. Rassismus überall.</p>
+
+  <div class="heimatbegriff">
+    <strong>Heimatmodell:</strong> Äußerlich gerettet, innerlich heimatlos. Der See bleibt Sehnsuchtsort, die alte Heimat lebt in Sprache, Traditionen, Musik weiter – aber zerrissen.
+  </div>
+</div>
+
+<!-- DORIS -->
+<div class="figur-card">
+  <h3>Das Mädchen · Doris (Nichte Ludwigs)</h3>
+  <p><b>Kindheit:</b> Wohlstand, familiäre Geborgenheit, glückliche Sommer am Scharmützelsee mit Großvater. 1939 wegen antisemitischer Hänseleien für zwei Jahre zur Tante nach Berlin.</p>
+  <p><b>Schicksal:</b> 1941 mit Mutter ins Warschauer Ghetto deportiert. 1942 in ihrem Versteck (dunkle Kammer, sarg-eng) entdeckt und später in Treblinka erschossen – mit 12 Jahren.</p>
+  <p><b>Zentrale Position:</b> Ihr Kapitel steht bewusst in der <b>Mitte des Romans</b>. Die Leser nehmen unmittelbar Teil an ihren Gedanken. Im Versteck ist ihre einzige Kraftquelle die <b>Erinnerung</b>: „Farbig ist nur noch das, woran sie sich erinnert“ (S. 80). „Und so lange sie noch irgend etwas auf dieser Welt kennt, ist sie noch nicht in der Fremde“ (S. 87).</p>
+  <p>Sie weiß: Sie wird mit 12 sterben. Entweder verhungern oder erschossen werden. Nüchterner Realismus (S. 82).</p>
+  <p><b>Letzter Gang:</b> Durchs leere Ghetto – „jetzt gehen alle endlich für immer heim“ (S. 90). Heimgehen = Tod. Heimat = Himmel (Philipper 3,20: „Wir dagegen haben unsere Heimat im Himmel“).</p>
+
+  <div class="heimatbegriff">
+    <strong>Heimatmodell:</strong> Heimat als innere Erinnerung, als Licht gegen Dunkelheit. Am Ende verschiebt sich „Heimat“ ins Jenseitige – letzte Hoffnung. Doris ist das moralische Zentrum des Romans – gegen das Vergessen (→ Widmung).
+  </div>
+</div>
+
+<!-- SCHRIFTSTELLERIN -->
+<div class="figur-card">
+  <h3>Die Schriftstellerin</h3>
+  <p><b>Charakter:</b> Jüdin, überzeugte Kommunistin (Vorbild Hedda Zinner). Flieht mit Mann ins Moskauer Exil, überlebt durch Versteck bei Johannes Becher die stalinistischen Säuberungen.</p>
+  <p><b>Rückkehr:</b> Nach 1945 Mitglied der intellektuellen DDR-Elite. Haus am See gepachtet, dann gekauft. Lebt dort mit Mann, Sohn, Schwiegertochter, Enkelin (Jenny Erpenbeck).</p>
+  <p><b>Heimatbegriff:</b> Ihre <b>Schreibmaschine</b> ist ihre Heimat. „Diese Schreibmaschine war ihre Wand … mit dieser Schreibmaschine hatte sie all die Worte getippt, die die deutschen Barbaren zurückverwandeln sollten in Menschen und die Heimat in Heimat“ (S. 114). Sprache = Identität; Sprache = kommunistische Ideologie.</p>
+  <p><b>Kapitelbeginn:</b> „I-c-h k-e-h-r-e h-e-i-m“ (S. 112) – einzelne Tastenanschläge.</p>
+  <p><b>Ziel:</b> Heimat überschreitet Nationen – „Aber ihr, der kein Land mehr, sondern die Menschheit die Heimat sein sollte, blieb der Zweifel für immer als Heimweh“ (S. 116). Oberster Wert: Menschlichkeit.</p>
+  <p><b>Desillusionierung:</b> Der junge Arzt vom Nachbargrundstück (von oben gedeckt) baut sich ein Wohnhaus statt Bienenhaus. Vetternwirtschaft, offizielle Lügensprache der Bauern („fremde Worte, die ihnen nicht selbst im Mund gewachsen sind“ S. 122). Ihre Wut „verwandelt sich in Erschöpfung“. 1989 schreibt sie Lebenserinnerungen mit <b>bewussten Auslassungen</b> – auch eigene Schuld. Sie weigert sich, gewöhnlichen Deutschen die Hand zu geben – fremd im eigenen Land.</p>
+
+  <div class="heimatbegriff">
+    <strong>Heimatmodell:</strong> Heimat als politisch-moralische Utopie (Menschheit + Sozialismus). Zerbricht an der Realität der DDR. Sprache und Schreiben bleiben als letzter Halt – aber nicht rein, sondern selbstidealisierend.
+  </div>
+</div>
+
+<!-- BESUCHERIN -->
+<div class="figur-card">
+  <h3>Die Besucherin</h3>
+  <p><b>Charakter:</b> Alte Bäuerin aus Masuren/Ostpreußen (Vorbild: Erpenbecks Urgroßmutter). Bodenständig, fleißig, praktisch – starker Gegensatz zum intellektuellen Schriftsteller-Ehepaar ihrer Enkelin. Sie wird gesiezt.</p>
+  <p><b>Schicksal:</b> Mann (Ukrainer, Musiker) früh bei Unfall gestorben. Tochter im Krieg verschollen. Nach 1945 arbeitet sie noch als Magd auf dem eigenen, jetzt von Polen bewohnten Hof, um ihre Enkelinnen durchzubringen und auf die Tochter zu hoffen. Dann Flucht nach Berlin mit drei Enkelinnen. Verbringt fünf Sommer am Scharmützelsee.</p>
+  <p><b>Mission erfüllt:</b> „Als ihre Enkelin sie einmal fragte, ob es ihr nicht leid tue – um das Haus, die Kühe, den ganzen Besitz, verstand sie die Frage überhaupt nicht mehr. Sie hat die Kinder gerettet, mehr gab es darauf nicht zu sagen.“ (S. 136)</p>
+  <p><b>Heimat-Paradox:</b> „Besser war es allemal, fremd zu sein in der Fremde, und nicht im eigenen Haus.“ (S. 129) – Fremdheit in Polen war schlimmer als Fremdheit am See. „Im Grunde fällt es ihr sogar leichter, fremd zu sein in der Fremde, weil das Fremdsein ihr so vertraut ist …“ (S. 135).</p>
+
+  <div class="heimatbegriff">
+    <strong>Heimatmodell:</strong> Heimat als innere Tätigkeit (Schwimmen, Löwenzahn, Lerchen, Musik des verstorbenen Mannes, Summen für die Enkelin). Befreit vom Ort, getragen von Haltung – die pragmatischste, ruhigste Figur neben dem Gärtner.
+  </div>
+</div>
+
+<!-- UNTERPÄCHTER -->
+<div class="figur-card">
+  <h3>Die Unterpächter</h3>
+  <p><b>Situation (um 1990):</b> Segelbegeistertes Ehepaar pachtet die Werkstatt am Wasser.</p>
+  <p><b>Der Mann:</b> Als Student dilettantischer Fluchtversuch über die Elbe; Freund ertrank; er kam ins Gefängnis. Extern schuf er die Bauingenieur-Prüfung erfolgreich, bleibt aber einfacher Arbeiter – ohne Ehrgeiz, Leben = „ständige Zwischenlösung“. Seiner Frau verweigert er in der Krise jede Hilfe.</p>
+  <p><b>Die Frau:</b> Erfährt telefonisch, ihre Eltern waren nur Zieheltern, sie ist ein Flüchtlingskind, hat eine Schwester. „Mit einem Leben Verspätung“ (S. 148) findet sie sich in einer neuen Biografie wieder.</p>
+
+  <div class="heimatbegriff">
+    <strong>Heimatmodell:</strong> Vorläufigkeit, Provisorium, Wasser statt Haus. Kein Besitzanspruch – aber auch keine feste Identität. Moderne Form der Entwurzelung.
+  </div>
+</div>
+
+<!-- KINDERFREUND -->
+<div class="figur-card">
+  <h3>Der Kinderfreund</h3>
+  <p><b>Charakter:</b> Nachbarsjunge der Enkelin, im Dorf ansässig. Mit fünf lernt er die vierjährige Jenny kennen. In den Ferien unzertrennlich – aber mit Standesunterschied: er wartet, bis ihre Familie gefrühstückt hat.</p>
+  <p><b>Traumatisches Ereignis (um 1980):</b> Beide werden vom Neffen eines Direktors zum heimlichen Beobachten einer Vergewaltigung einer 12-Jährigen mitgenommen. „Daß man an einem Ort durch gemeinsame Gier und Scham gründlicher festgeknüpft wird als durch gemeinsames Glück, das hätte er gern niemals gelernt.“ (S. 165)</p>
+  <p><b>Sein Irrtum:</b> „Nur eines hatte er damals noch nicht verstanden, nämlich daß seine Freundin dort, wo er lebte, nur ihre Ferien verbrachte.“ (S. 165) – Für sie Episode, für ihn Schicksal.</p>
+
+  <div class="heimatbegriff">
+    <strong>Heimatmodell:</strong> Heimat als Bindung an einen Ort und an Vergangenheit. Passivität, Warten, Zufall statt Handeln. Erinnerung als Blockade. Kein selbstbestimmter Lebensweg.
+  </div>
+</div>
+
+<!-- UNBERECHTIGTE -->
+<div class="figur-card">
+  <h3>Die unberechtigte Eigenbesitzerin (= die Enkelin / Jenny Erpenbeck)</h3>
+  <p><b>Rechtlicher Status:</b> Juristische Sprache nach der Wende – sachlich, kalt, entmenschlichend. Die erwachsene Enkelin hat gegen die zurückkehrenden Erben der Architektengattin keine Chance.</p>
+  <p><b>Handlung:</b> Gibt den Schlüssel nicht zurück. Zieht sich ins „Vögelchenzimmer“ (das Schrankzimmer, Zimmer ihrer Kindheit) zurück, beobachtet die Maklergespräche. Putzt gründlich, räumt auf, holt Wasser aus dem See, hängt Vorhänge auf.</p>
+  <p><b>Kindheitsgefängnis:</b> „Rückwärtsgewandt werden damit die Kindheit und der damit verbundene Ort bzw. die Personen zu einem ‚sehr schönen Gefängnis‘ (S. 183), aus dem Loslösung schwer ist.“ (Königs) – <b>Oxymoron</b> als Ausdruck der Ambivalenz.</p>
+  <p><b>Schluss:</b> „Mit jedem Zimmer, das sie abschließt, geht sie nach innen und verschließt einen Teil ihres Selbst“ (Reclam). „… und schließt zuletzt die Haustür ab, obgleich sie nicht weiß, wie das möglich sein kann, weil alles, was sie da abschließt, so weit innen liegt, und der Teil der Welt, in den sie zurückweicht, so weit außen.“ (S. 185)</p>
+
+  <div class="heimatbegriff">
+    <strong>Heimatmodell:</strong> Heimat als Identitätsraum und Kindheitserinnerung. Die Wiedervereinigung macht sie zur Heimatvertriebenen im eigenen Land. Der Hausputz ist rituelles Abschiednehmen, fast Leichenwäsche (vgl. Großbauer S. 26, Azteken S. 184).
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s7">7 · Schlüsselszenen im Überblick</h2>
+
+<h3>7.1 · Die Mama-Szene (April 1945)</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Die wichtigste Szene des Romans. Der Rotarmist findet die Frau des Architekten im Schrankzimmer. Machtverhältnisse kippen mehrfach: er bewaffnet und übermächtig; er selbst das verlorene Kind; sie Mutterfigur; sie übernimmt die Führung. Das Wort „Mama“ ist der Riss in ihrer Ewigkeit – und verbindet zwei unterschiedlich traumatisierte Biografien. Brot als Geste. Das Brot, das im ersten Teil rätselhaft war, bekommt hier seine Quelle.</p>
+</div>
+
+<h3>7.2 · Doris in der dunklen Kammer</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Äußerlich: Hunger, Angst, Enge, Dunkelheit. Innerlich: farbige Kindheitserinnerung am See. Sie wirkt zugleich wie „ein wildes Kind“ und „eine taube, blinde Alte“ – Kind, das in der Extremsituation innerlich rapide altert. Diese Szene ist der moralische Kern des Romans: Erinnerung als letzte Heimat gegen die Vernichtung.</p>
+</div>
+
+<h3>7.3 · Der Pfefferminz-Kampfer-Geruch</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Die Frau des Architekten reibt sich wegen der Wechseljahre mit Pfefferminze und Kampfer ein – der Geruch bleibt im Haus. Der Rotarmist riecht ihn, und er löst Mutter-Assoziation aus. Als die Enkelin Jahrzehnte später ins Schrankzimmer zurückkehrt, ist der Geruch noch da. <b>Der Geruch verbindet Generationen, Körper, Erinnerung, Geschichte.</b> Was einmal im Haus geschehen ist, bleibt als Atmosphäre.</p>
+</div>
+
+<h3>7.4 · Der Hausputz am Ende</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Sachlich völlig sinnlos (das Haus wird ja abgerissen), symbolisch entscheidend: Totenritual, Abschied, Wiederherstellung der Kindheitswelt für einen letzten Moment. Die Enkelin behandelt das Haus wie einen toten Körper, von dem man sich würdig verabschiedet.</p>
+</div>
+
+<h3>7.5 · Das Versteck im Wandschrank – zwei Generationen</h3>
+<div class="box struktur">
+  <span class="label">Struktur</span>
+  <p>Dieselbe räumliche Situation zweimal: 1945 die Frau des Architekten (S. 73), 45 Jahre später die Enkelin (S. 179). Ein wiederkehrender Ort der Zuflucht – und der Bedrohung. Typisches Beispiel für die erzählerische Frequenz-Technik.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s8">8 · Themen & Deutung</h2>
+
+<h3>8.1 · Heimat – die zentrale Frage</h3>
+<div class="kern">
+  Kann der moderne Mensch überhaupt noch dauerhaft Heimat finden? – Der Roman antwortet eher pessimistisch: Nein, nicht wirklich.
+</div>
+<p>Heimat ist im Roman <b>nicht</b> ein sicherer Besitz, sondern verletzlich, vorläufig, bedroht. Sie kann verloren gehen durch Krieg, Vertreibung, politische Systeme, Enteignung, Tod, biografische Brüche – oder einfach durch die Zeit.</p>
+
+<h3>8.2 · Heimat-Modelle der Figuren</h3>
+<table>
+  <tr><th>Figur</th><th>Heimatmodell</th><th>Ergebnis</th></tr>
+  <tr><td>Architekt</td><td>Heimat als Besitz, Plan, „dritte Haut“</td><td>Flucht 1951, Haus verloren</td></tr>
+  <tr><td>Frau des Architekten</td><td>Heimat als Anpassung an den Mann</td><td>Riss in der Ewigkeit (Mama-Szene)</td></tr>
+  <tr><td>Ludwig</td><td>Neue Heimat Kapstadt</td><td>Innerlich zerrissen, „Vertreibung ins Paradies“</td></tr>
+  <tr><td>Doris</td><td>Heimat als innere Erinnerung / Himmel</td><td>Ermordet – aber durch die Widmung bewahrt</td></tr>
+  <tr><td>Rotarmist</td><td>Heimat als ermordete Familie / Mutter</td><td>Unwiederbringlich; sucht Ersatz</td></tr>
+  <tr><td>Schriftstellerin</td><td>Heimat als politische Utopie + Schreibmaschine</td><td>Desillusionierung an der DDR</td></tr>
+  <tr><td>Besucherin</td><td>Heimat als Tätigkeit, Haltung, Familie</td><td>Mission erfüllt (Kinder gerettet) – zufrieden</td></tr>
+  <tr><td>Unterpächter</td><td>Heimat als Provisorium, Wasser, Segeln</td><td>Biografische Brüche, keine Festigkeit</td></tr>
+  <tr><td>Kinderfreund</td><td>Heimat als Ort + Vergangenheit</td><td>Blockade, Passivität</td></tr>
+  <tr><td>Enkelin</td><td>Heimat als Kindheitsraum</td><td>„Schönes Gefängnis“ – Abschied, aber kein Loslassen</td></tr>
+  <tr><td><b>Gärtner</b></td><td>Heimat als Einklang mit der Natur</td><td><b>Einzige glückliche Figur</b></td></tr>
+</table>
+
+<h3>8.3 · Das Haus als dritte Haut</h3>
+<blockquote class="zitat">„Heimat planen, das ist sein Beruf. Vier Wände um ein Stück Luft … Ein Haus, die <b>dritte Haut</b>, nach der Haut aus Fleisch und der Kleidung. Heimstatt. Ein Haus maßschneidern nach den Bedürfnissen seines Herrn.“ (S. 38)</blockquote>
+<p>Das Haus ist mit dem Architekten verbunden wie ein Körper. Wenn er fliehen muss (1951), wird ihm die „dritte Haut“ abgezogen – „mit glänzenden Innereien den rettenden Westen erreichen“ (S. 39). Das Haus ist Festung und Teil des Selbst zugleich.</p>
+
+<h3>8.4 · Erinnerung gegen das Vergessen</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Die Widmung an Doris Kaplan ist programmatisch: Erpenbeck will jüdisches Leben vor dem Verschwinden bewahren. Doris hat einen Namen, ein Gesicht, eine Geschichte – keine anonyme Opferfigur, sondern ein konkreter Mensch. Der Roman wird so zum literarischen Stolperstein.</p>
+  <p>Dieses Anliegen verbindet sich mit einer weiteren Erkenntnis: <b>Heimat lebt in Sprache, Geruch, Musik und Bild weiter</b> – auch wenn der Ort verloren ist. Doris, Ludwig, die Besucherin zeigen das.</p>
+</div>
+
+<h3>8.5 · Natur vs. Geschichte</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Prolog (Geologie, Eiszeit) und Epilog (Abriss) rahmen den Roman. Natur war vor dem Menschen da und wird ihn überdauern. Der Gärtner verkörpert diese Naturbezogenheit im Roman selbst – er ist die einzige Figur in Harmonie. Alle Besitz- und Heimatansprüche sind gegenüber der Erdgeschichte winzig.</p>
+</div>
+
+<h3>8.6 · Transzendentale Obdachlosigkeit (Georg Lukács)</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <blockquote class="zitat">„Damit ist gemeint, dass dem Individuum die Welt, in der es lebt, fremd geworden ist. Hiermit einher geht die Entfremdung von sich selbst … Jegliche traditionelle Ordnung und Sinngebung des Daseins ist fragwürdig und zweifelhaft geworden, Traditionen und Riten haben ihre Überzeugungskraft eingebüßt.“ (Westermann)</blockquote>
+  <p>Der Begriff beschreibt die Grundsituation der Figuren: Weder Haus, Familie, Beruf noch Ideologie geben dauerhafte Sicherheit. Alles bleibt vorläufig. Der Architekt scheitert an der DDR-Ideologie; die Schriftstellerin am real existierenden Sozialismus; die Enkelin an der Restitution.</p>
+  <p><b>Ab dem Grundstücksverkauf und dem Hausbau des Architekten</b> kann sich keine Figur mehr sicher sein, in ihrer Heimat einen sicheren Hafen zu finden. Die Heimsuchungen holen alle gegen ihren Willen ein.</p>
+</div>
+
+<h3>8.7 · Wendeliteratur</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Der Roman ist auch ein Roman über die <b>Folgen der Wiedervereinigung</b>. Für die Erpenbeck-Familie – und für viele in der ehemaligen DDR – bedeutete 1989/90 nicht nur Freiheit, sondern auch Verlust von Status, Beruf, ideologischer Heimat, Besitz und Kindheitsorten. <b>Auch politische Umbrüche in der Gegenwart machen heimatlos</b>, nicht nur Krieg und Verfolgung in der Vergangenheit.</p>
+</div>
+
+<h3>8.8 · Die Form spiegelt den Inhalt</h3>
+<div class="box struktur">
+  <span class="label">Struktur</span>
+  <p>Dass der Roman fragmentarisch, sprunghaft, nicht chronologisch, voller Lücken ist, ist kein Mangel, sondern Teil der Aussage. Die Welt des modernen Menschen hat keine geschlossene Ordnung mehr. Der Leser erlebt selbst Unsicherheit, Brüchigkeit, Orientierungsverlust – dieselbe Erfahrung wie die Figuren.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s9">9 · Familienverflechtungen</h2>
+
+<div class="box figur">
+  <span class="label">Figur</span>
+  <h4>Die jüdische Familie</h4>
+  <ul>
+    <li>Tuchfabrikant (Vorbild: Heinz Engel, Guben) + Hermine</li>
+    <li>→ Sohn <b>Ludwig</b> (emigriert 1936 nach Kapstadt)</li>
+    <li>→ Tochter <b>Elisabeth</b> (1941 ins Warschauer Ghetto, 1942 verschollen)</li>
+    <li>→ Elisabeths Tochter <b>Doris Kaplan</b> (1931–1942, ermordet; Widmung des Romans)</li>
+  </ul>
+
+  <h4>Die Schriftsteller-Familie (Linie: väterlich)</h4>
+  <ul>
+    <li>Schriftstellerin (Hedda Zinner) + Mann (Fritz Erpenbeck)</li>
+    <li>→ Sohn (1942 in Ufa geboren, Erpenbecks Vater)</li>
+    <li>→ heiratet die jüngste Enkelin der Besucherin</li>
+    <li>→ deren Tochter: <b>Jenny Erpenbeck</b> (= Enkelin = „unberechtigte Eigenbesitzerin“)</li>
+  </ul>
+
+  <h4>Die ostpreußische Linie (Linie: mütterlich)</h4>
+  <ul>
+    <li><b>Die Besucherin</b> (Bäuerin aus Masuren, 3 Enkelinnen)</li>
+    <li>→ Tochter im Krieg verschollen</li>
+    <li>→ jüngste Enkelin (Doris Kilias, 1942–2008, Arabistik-Professorin, Mutter Jenny Erpenbecks)</li>
+    <li>→ heiratet den Sohn der Schriftstellerin</li>
+  </ul>
+</div>
+
+<div class="kern">
+  Jenny Erpenbeck ist erzählerisch die Schnittstelle zweier Familienlinien: der kommunistisch-intellektuellen Schriftsteller-Familie und der bäuerlich-praktischen Flüchtlingsfamilie.
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s10">10 · Merksätze fürs Abi</h2>
+
+<div class="kern">
+  <b>Ein-Satz-Merker:</b> <em>Heimsuchung</em> zeigt, dass Menschen Heimat suchen, aber von Geschichte, Verlust und Zeit immer wieder aus ihr vertrieben werden, sodass am Ende oft nur Erinnerung bleibt.
+</div>
+
+<h3>Die sechs Kerngedanken</h3>
+<ol>
+  <li><b>Heimat ist im Roman nie sicher</b> – weder durch Besitz, Haus, Ideologie noch durch Familie.</li>
+  <li><b>Geschichte zerstört private Lebensentwürfe</b> – Nationalsozialismus, Krieg, DDR, Wende greifen brutal ins Persönliche ein.</li>
+  <li><b>Das Grundstück bleibt – die Menschen wechseln</b>. Der See als „Paradies“ überdauert die, die ihn lieben.</li>
+  <li><b>Der Gärtner ist die Ausnahme</b>: Er lebt nicht gegen die Welt, sondern mit ihr. Gegenfigur zum hektischen Besitz-Menschen.</li>
+  <li><b>Erinnerung ist stärker als Eigentum</b>: Was bleibt, sind Geruch, Sprache, Musik, Kindheit – nicht das Materielle.</li>
+  <li><b>Die Form spiegelt den Inhalt</b>: Fragmentarisches Erzählen ist die angemessene Form für die transzendentale Obdachlosigkeit des modernen Menschen.</li>
+</ol>
+
+<h3>Abi-tauglicher Fließtext (40-Sekunden-Version)</h3>
+<blockquote class="zitat">
+Jenny Erpenbecks Roman <em>Heimsuchung</em> zeigt am Beispiel eines Grundstücks am Scharmützelsee, wie sich hundert Jahre deutscher Geschichte in einzelne Lebensgeschichten einschreiben. Der doppeldeutige Titel bündelt, worum es geht: Die Figuren suchen Heimat – und werden zugleich von der Geschichte heimgesucht. Ob durch Nationalsozialismus, Krieg, DDR oder Wiedervereinigung – fast alle werden vertrieben, enteignet oder zerbrochen. Der Roman entwirft dabei sehr unterschiedliche Heimatmodelle: Besitz und Planung beim Architekten, politische Utopie bei der Schriftstellerin, Flucht und Tradition bei Ludwig, innere Erinnerung bei Doris, bäuerliche Pragmatik bei der Besucherin, Kindheitsraum bei der Enkelin. Fast alle scheitern. Einzig der Gärtner lebt in Einklang mit der Natur – die einzige glückliche Figur. Besonders wichtig ist das Anliegen der Erinnerung: Mit der Widmung „Für Doris Kaplan“ setzt Erpenbeck einem realen ermordeten jüdischen Kind einen literarischen Stolperstein. Die fragmentarische, sprunghafte, perspektivisch wechselnde Erzählweise ist keine Schwierigkeit, sondern Teil der Aussage: Sie spiegelt die <em>transzendentale Obdachlosigkeit</em> (Lukács) des modernen Menschen. Am Ende bleibt nur Erinnerung – und selbst das Haus wird abgerissen.
+</blockquote>
+
+<hr style="margin-top:50px; border:none; border-top:1px solid #ccc;">
+<p style="color:#888; font-size:13px; text-align:center; margin-top:20px;">
+Master-Zusammenfassung auf Grundlage des Inhalts-/Interpretations-Manuskripts und der Gesamt-Interpretation von Klaus Schenck (2024) zu Jenny Erpenbeck, <em>Heimsuchung</em>, Penguin.
+</p>
+
+</body>
+</html>

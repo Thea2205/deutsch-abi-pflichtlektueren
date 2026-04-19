@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Heinrich von Kleist – Der zerbrochne Krug · Master-Zusammenfassung</title>
+<style>
+  :root {
+    --c-inhalt: #1e5fb3;
+    --c-inhalt-bg: #e8f1fb;
+    --c-figur: #1f7a42;
+    --c-figur-bg: #e6f3ec;
+    --c-deutung: #6b2d9e;
+    --c-deutung-bg: #f1e8fa;
+    --c-struktur: #b5341a;
+    --c-struktur-bg: #fbe9e3;
+    --c-bio: #b2740d;
+    --c-bio-bg: #fdf3e0;
+    --c-kern: #8a6d00;
+    --c-kern-bg: #fff7c2;
+    --c-neutral: #222;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 30px 40px 80px;
+    color: #1a1a1a;
+    line-height: 1.55;
+    background: #fafafa;
+  }
+  h1 {
+    font-size: 30px;
+    color: #0f0f0f;
+    border-bottom: 4px solid #1a1a1a;
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+  }
+  h1 + .sub {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 30px;
+  }
+  h2 {
+    background: #1a1a1a;
+    color: white;
+    padding: 10px 16px;
+    font-size: 22px;
+    margin-top: 45px;
+    border-radius: 4px;
+  }
+  h3 {
+    color: #1a1a1a;
+    font-size: 19px;
+    margin-top: 28px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 4px;
+  }
+  h4 {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    color: #333;
+  }
+  p { margin: 8px 0; }
+  ul, ol { margin: 8px 0; padding-left: 22px; }
+  li { margin-bottom: 4px; }
+  code { background: #f0f0f0; padding: 1px 5px; border-radius: 3px; font-size: 0.9em; }
+
+  /* Legend */
+  .legend {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 30px;
+  }
+  .legend h3 { margin-top: 0; border: none; }
+  .legend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 18px;
+    font-size: 14px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 8px; }
+  .swatch {
+    width: 18px; height: 18px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  /* Content boxes */
+  .box {
+    border-left: 5px solid;
+    background: white;
+    padding: 10px 16px;
+    margin: 12px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .box .label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    color: white;
+  }
+
+  .inhalt { border-color: var(--c-inhalt); background: var(--c-inhalt-bg); }
+  .inhalt .label { background: var(--c-inhalt); }
+
+  .figur { border-color: var(--c-figur); background: var(--c-figur-bg); }
+  .figur .label { background: var(--c-figur); }
+
+  .deutung { border-color: var(--c-deutung); background: var(--c-deutung-bg); }
+  .deutung .label { background: var(--c-deutung); }
+
+  .struktur { border-color: var(--c-struktur); background: var(--c-struktur-bg); }
+  .struktur .label { background: var(--c-struktur); }
+
+  .bio { border-color: var(--c-bio); background: var(--c-bio-bg); }
+  .bio .label { background: var(--c-bio); }
+
+  .kern {
+    border-left: 5px solid var(--c-kern);
+    background: var(--c-kern-bg);
+    padding: 10px 16px;
+    margin: 14px 0;
+    font-weight: 500;
+    border-radius: 0 4px 4px 0;
+  }
+  .kern::before {
+    content: "★ KERNIDEE  ";
+    font-weight: 700;
+    color: var(--c-kern);
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .zitat {
+    border-left: 3px solid #888;
+    padding: 6px 14px;
+    margin: 8px 0 8px 12px;
+    color: #333;
+    font-style: italic;
+    background: #fdfdfd;
+  }
+
+  /* Figure card */
+  .figur-card {
+    background: white;
+    border: 1px solid #ccc;
+    border-left: 6px solid var(--c-figur);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 18px 0;
+  }
+  .figur-card h3 {
+    margin-top: 0;
+    color: var(--c-figur);
+    border-bottom: 1px dashed #c8e0d1;
+    padding-bottom: 4px;
+  }
+  .figur-card .rolle {
+    background: var(--c-deutung-bg);
+    border-left: 3px solid var(--c-deutung);
+    padding: 6px 12px;
+    margin-top: 8px;
+    font-size: 0.95em;
+  }
+  .figur-card .rolle strong { color: var(--c-deutung); }
+
+  /* Auftritt card */
+  .auftritt {
+    background: white;
+    border: 1px solid #ccc;
+    border-left: 6px solid var(--c-inhalt);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .auftritt h3 {
+    margin-top: 0;
+    color: var(--c-inhalt);
+    border-bottom: 1px dashed #cce0f1;
+    padding-bottom: 4px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 14px 0;
+    background: white;
+    font-size: 14px;
+  }
+  th, td {
+    border: 1px solid #d0d0d0;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #eee; }
+
+  .toc {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 14px 24px;
+    border-radius: 4px;
+    margin: 20px 0 30px;
+    column-count: 2;
+    column-gap: 30px;
+  }
+  .toc a { color: #1e5fb3; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .toc ol { padding-left: 18px; }
+
+  @media print {
+    body { background: white; padding: 20px; }
+    h2 { page-break-after: avoid; }
+    .figur-card, .box, .kern, .auftritt { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Heinrich von Kleist: <em>Der zerbrochne Krug</em></h1>
+<p class="sub">Master-Zusammenfassung fürs Abitur · Inhalt · Figuren · Struktur · Deutung</p>
+
+<!-- LEGEND -->
+<div class="legend">
+  <h3>Farb-Legende – so liest du dieses Skript</h3>
+  <div class="legend-grid">
+    <div class="legend-item"><span class="swatch" style="background:var(--c-inhalt)"></span><b>Blau</b> – Inhalt / Handlung (Was passiert?)</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--c-figur)"></span><b>Grün</b> – Figur / Personenkonstellation</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--c-deutung)"></span><b>Lila</b> – Deutung / Symbolik / Sinn</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--c-struktur)"></span><b>Rot</b> – Struktur / Erzähltechnik / Form</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--c-bio)"></span><b>Orange</b> – Biografie / Historischer Hintergrund</div>
+    <div class="legend-item"><span class="swatch" style="background:var(--c-kern)"></span><b>Gelb</b> – Kernidee / Merksatz / zentrales Zitat</div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <strong>Inhaltsübersicht</strong>
+  <ol>
+    <li><a href="#s1">Kompaktüberblick</a></li>
+    <li><a href="#s2">Kleist, Kant-Krise, Entstehung</a></li>
+    <li><a href="#s3">Aufbau, Gattung, Titel</a></li>
+    <li><a href="#s4">Analytisches Drama & Lustspiel</a></li>
+    <li><a href="#s5">Chronologischer Inhalt (Auftritt 1–13)</a></li>
+    <li><a href="#s6">Die Figuren im Detail</a></li>
+    <li><a href="#s7">Zentrale Symbole & Schlüsselszenen</a></li>
+    <li><a href="#s8">Themen & Deutung</a></li>
+    <li><a href="#s9">Adam und Ödipus</a></li>
+    <li><a href="#s10">Merksätze fürs Abi</a></li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s1">1 · Kompaktüberblick</h2>
+
+<div class="box inhalt">
+  <span class="label">Inhalt</span>
+  <p><b>Gattung:</b> Lustspiel in einem Akt (in Blankversen).</p>
+  <p><b>Schauplatz:</b> Gerichtsstube in <b>Huisum</b>, einem niederländischen Dorf nahe Utrecht, spätes 17. Jahrhundert.</p>
+  <p><b>Entstehung:</b> ab 1802 – Uraufführung 1808 unter Goethe (Misserfolg) – endgültige Fassung 1811.</p>
+  <p><b>Ab 2026 Deutsch-Abi-Pflichtlektüre.</b></p>
+  <p><b>Handlung:</b> Dorfrichter Adam leitet einen Prozess über einen zerbrochenen Krug – und merkt erst allmählich, dass der unangekündigte Besuch von Gerichtsrat Walter aufdecken wird, dass er selbst der Täter ist. Im Verlauf eines einzigen Vormittags wird Adam Schritt für Schritt entlarvt und flieht am Ende.</p>
+</div>
+
+<div class="kern">
+  <em>Der zerbrochne Krug</em> zeigt einen Richter, der in eigener Sache urteilt: Adam ist Richter und Täter zugleich. Die Komik entsteht, weil er sich mit immer neuen Lügen aus einer Schlinge zu winden versucht, die er selbst gelegt hat.
+</div>
+
+<div class="box struktur">
+  <span class="label">Struktur</span>
+  <p><b>13 Auftritte</b> (bewusst gewählte Unglückszahl). Der kurze 8. Auftritt (die Magd bringt Wasser) dient formal dazu, den 7. und 9. Auftritt zu trennen – sonst wäre ein einziger Riesen-Auftritt entstanden, der mehr als die Hälfte des Stücks ausmachen würde.</p>
+  <p>Kleist hält trotz der derben Dorfkomik die klassische <b>Einheit von Handlung, Zeit und Ort</b> ein – ein Merkmal der Tragödie, nicht der Komödie.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s2">2 · Kleist, Kant-Krise, Entstehung</h2>
+
+<div class="box bio">
+  <span class="label">Biografie</span>
+  <p><b>Heinrich von Kleist</b> (1777–1811). Verließ das Militär, brach sein Studium ab, lebte unstet, scheiterte finanziell und publizistisch. 1811 erschoss er zuerst seine todkranke Freundin Henriette Vogel und dann sich selbst. Hinter dem komischen Stück steht also ein tief unglücklicher Autor.</p>
+</div>
+
+<h3>Die Kant-Krise – erkenntnistheoretischer Hintergrund</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Kleist glaubte zuvor, Wahrheit und Bildung seien das höchste Lebensziel. Durch Kant kam er zu der Einsicht: Der Mensch kann die Wirklichkeit <b>nicht objektiv</b> erkennen.</p>
+  <blockquote class="zitat">„Wenn alle Menschen statt der Augen grüne Gläser hätten, so würden sie urteilen müssen, die Gegenstände, welche sie dadurch erblicken, sind grün … Wir können nicht entscheiden, ob das, was wir Wahrheit nennen, wahrhaft Wahrheit ist oder ob es nur so scheint.“ (Kleist, Brief an Wilhelmine von Zenge, 22.3.1801)</blockquote>
+  <p>Diese Krise wirkt direkt ins Stück: Im <em>Krug</em> scheitern fast alle Figuren an der Wahrheit, obwohl sie offen vor ihnen liegt – jeder sieht durch seine eigene „grüne Brille“ aus Ehrvorstellungen, Eifersucht, Aberglauben oder Eigeninteresse.</p>
+</div>
+
+<h3>Entstehungsgeschichte</h3>
+<div class="box bio">
+  <span class="label">Historisches</span>
+  <p>Laut Überlieferung sah Kleist mit Freunden in der Schweiz einen <b>Kupferstich</b> mit dem Titel „Der Richter“ oder „Der zerbrochene Krug“. In einem Dichterwettstreit wählte jeder eine literarische Form: einer eine Satire, einer eine Erzählung, Kleist ein Lustspiel – und gewann.</p>
+</div>
+
+<h3>Politischer Hintergrund: Niederlande & deutsche Einheit</h3>
+<div class="box bio">
+  <span class="label">Historisches</span>
+  <p>Deutschland war um 1800 politisch zersplittert, Napoleon besetzte preußische Gebiete. Die Niederlande galten als Vorbild: Provinzen, die sich gegen eine Besatzungsmacht zur Unabhängigkeit zusammenschlossen. Nicht zufällig ist auf dem zerbrochenen Krug genau jene Szene dargestellt, die zum niederländischen Unabhängigkeitskampf führte – die Übergabe der Provinzen an Philipp II.</p>
+  <p>Verbindungen zu Schillers <em>Don Carlos</em>, Goethes <em>Egmont</em> und Kleists „Katechismus der Deutschen“ (1809). Kleist sehnte sich nach einem vereinigten Deutschland.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s3">3 · Aufbau, Gattung, Titel</h2>
+
+<h3>Die Vorrede – drei zentrale Bezüge</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <ol>
+    <li><b>Historisches Fundament:</b> Kleist nennt einen Kupferstich als Auslöser – das Stück erhält damit einen scheinbar „wirklichen“ Ursprung.</li>
+    <li><b>Sophokles / Ödipus:</b> Der Gerichtsschreiber sieht den Richter an „wie Kreon den Ödipus“. Damit wird schon vor Beginn die Verbindung zur antiken Tragödie hergestellt – Richter und Täter in einer Person.</li>
+    <li><b>Ständeklausel als Parodie:</b> Das Personenverzeichnis ist hierarchisch geordnet (Walter – Adam – Licht – Dorf), wie es die klassische Tragödie verlangt. Gerade das ist Parodie: In Wahrheit wird diese Ordnung im Stück demontiert.</li>
+  </ol>
+</div>
+
+<h3>Der Schauplatz – Gerichtsstube = Wohn- + Schlafzimmer</h3>
+<div class="box struktur">
+  <span class="label">Struktur</span>
+  <p>Die Gerichtsstube ist <b>nicht</b> ein neutraler Amtsraum, sondern zugleich Adams Wohn- und Schlafzimmer. Privates und Öffentliches sind von Anfang an vermischt. Die Justiz wird räumlich schon als in persönliche Interessen verstrickt gezeigt. Sogar die Registratur dient als Speisekammer (Würste, Schinken, Käse) – Korruption im Kleinen.</p>
+</div>
+
+<h3>Gattung: Lustspiel mit tragischem Kern</h3>
+<div class="box struktur">
+  <span class="label">Struktur</span>
+  <p><b>Typisch Lustspiel:</b> niedere Figuren, komische Schwächen, versöhnlicher Schluss, die lächerliche Figur wird nicht vernichtet, sondern in die Gemeinschaft zurückgeholt (→ deshalb will Walter Adam am Ende zurückholen).</p>
+  <p><b>Untypisch – eher Tragödie:</b> Blankvers, Einheit von Handlung/Zeit/Ort, Ödipus-Bezug, Eves fast tragische Notlage.</p>
+  <p>Kleist mischt bewusst <b>derbe Dorfkomik</b> und <b>tragische Tiefe</b>. Unter dem Witz liegen: Schuld, sexueller Machtmissbrauch, Justizkritik, Vertrauensbruch.</p>
+</div>
+
+<h3>Die Handlung in einem Satz (aus dem Werk selbst)</h3>
+<div class="kern">
+  Adams Traum: „Mir träumt', es hätt ein Kläger mich ergriffen, / Und schleppte vor den Richtstuhl mich; und ich, / Ich säße gleichwohl auf dem Richtstuhl dort, / Und schält und hunzt und schlingelte mich herunter, / Und judiziert den Hals ins Eisen mir.“ – Der Traum enthält das ganze Stück im Kern: Adam ist Richter und Angeklagter zugleich, beide fliehen.
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s4">4 · Analytisches Drama & Lustspiel</h2>
+
+<h3>Analytisches Drama – was ist das?</h3>
+<div class="box struktur">
+  <span class="label">Struktur</span>
+  <p>Ein <b>Enthüllungsdrama</b>: Die entscheidende Tat ist <b>schon vor Beginn</b> des Stücks passiert. Auf der Bühne sehen wir nur die schrittweise Rekonstruktion.</p>
+  <p><b>Die eigentliche Katastrophe liegt vor Vorhang-Auf:</b> Adam war nachts bei Eve, es kam zum Konflikt, der Krug zerbrach, Adam sprang aus dem Fenster, Ruprecht schlug ihn, die Perücke blieb im Weinspalier hängen.</p>
+  <p><b>Die Spannung ist daher nicht „Wer war es?“</b> – das ahnt das Publikum früh – sondern „Wie windet sich Adam heraus?“, „Wie lange kann er lügen?“, „Wann kippt es?“.</p>
+  <p><b>Vergleichbar mit:</b> Dürrenmatts <em>Besuch der alten Dame</em>.</p>
+</div>
+
+<h3>Die drei klassischen Einheiten</h3>
+<table>
+  <tr><th>Einheit</th><th>Umsetzung bei Kleist</th></tr>
+  <tr><td><b>Einheit der Handlung</b></td><td>Nur dieser eine Fall – alles dreht sich um Krug, Täter, Aufdeckung.</td></tr>
+  <tr><td><b>Einheit der Zeit</b></td><td>Der ganze Prozess spielt an einem Vormittag.</td></tr>
+  <tr><td><b>Einheit des Ortes</b></td><td>Alles geschieht in der Gerichtsstube.</td></tr>
+</table>
+
+<h3>Wahrheit kommt durchs Lügen hindurch</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Adam sagt immer wieder Dinge, die – gegen seinen Willen – die Wahrheit enthalten, ohne dass die anderen sie erkennen:</p>
+  <ul>
+    <li>„Jeder trägt den Stein des Anstoßes in sich selbst“ – spricht von seinem eigenen Fall.</li>
+    <li>Der „Ziegenbock am Ofen“ – der Ziegenbock ist Symbol des Triebhaften/Teuflischen, also genau der Anlass seines nächtlichen Falls.</li>
+    <li>Über den suspendierten Kollegen aus Holla (Richter Faul): „ein liederlicher Hund, aber sonst eine ehrliche Haut“ – beschreibt sich damit selbst.</li>
+    <li>„Wenn ihr die Wahrheit herausbekommt, bin ich ein Schuft.“ – doppeldeutig: nie / oder eben doch.</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s5">5 · Chronologischer Inhalt (Auftritt 1–13)</h2>
+
+<div class="auftritt">
+  <h3>1. Auftritt – Adam verletzt; Walter wird angekündigt</h3>
+  <p>Adam sitzt verletzt da (Kopfwunden, Klumpfuß, zerkratztes Gesicht) und verbindet sich. Licht fragt die Grundfrage des Stücks: <b>„Was ist Euch geschehen?“</b></p>
+  <p>Adam erfindet sofort: er sei aus dem Bett gefallen und habe mit einem Ziegenbock am Ofen gefochten. Licht kommentiert spöttisch – der linke Fuß sei ohnehin verkrüppelt, der rechte „wagt sich aufs Schlüpfrigere“: frühe Andeutung, dass die Verletzung moralisch-sexuell belastet ist.</p>
+  <p><b>Licht bringt die Bombe:</b> Gerichtsrat Walter kommt heute auf Visite – unangekündigt. In <b>Holla</b> wurde ein Richter suspendiert (Richter Faul wegen Veruntreuung) und unternahm einen Selbstmordversuch. Adam packt die Panik. Zugleich zeigt sich Lichts Ehrgeiz: er will selbst Dorfrichter werden.</p>
+</div>
+
+<div class="auftritt">
+  <h3>2. Auftritt – Perücke weg</h3>
+  <p>Adam hektisch: Registratur als Speisekammer (Würste, Schinken, Käse), Frühstück soll vorbereitet werden. Das größte Problem: <b>die Perücke fehlt</b>. Adam erfindet die absurde Katzen-Lügengeschichte: die Katze habe darin „gejungt“. Die Magd aber verrät, dass Adam schon in der Nacht <b>ohne Perücke und blutend</b> heimkam – die offizielle Geschichte passt nicht.</p>
+</div>
+
+<div class="auftritt">
+  <h3>3. Auftritt – Adams Traum</h3>
+  <p>Adam erzählt Licht den zentralen Traum: Ein Kläger habe ihn vor den Richterstuhl geschleppt, und er selbst sei zugleich Richter gewesen. Er habe sich selbst verurteilt, beide seien geflohen und im Wald bei den Fichten gelandet. <b>Der Traum nimmt das gesamte Stück vorweg.</b></p>
+</div>
+
+<div class="auftritt">
+  <h3>4. Auftritt – Licht als Gegenspieler</h3>
+  <p>Walter hat einen Auftrag: das ländliche Rechtswesen kontrollieren und modernisieren. Licht erwähnt scheinbar nebenbei „unangenehme Vorfälle“ – Walters kühle Formulierung über den Selbstmordversuch – und fragt nach den Gerichtskassen (eine Kasse zu viel → unrechtmäßige Zinsgewinne?). Licht positioniert sich innerlich als Konkurrent, obwohl er es gegenüber Adam abstreitet.</p>
+</div>
+
+<div class="auftritt">
+  <h3>5. Auftritt – Walter erscheint</h3>
+  <p>Keine Perücke bekommen. Adam versucht, Walter mit Frühstück und Alkohol zu verzögern und zu bestechen – Walter lehnt schroff ab und bemerkt Adams Kopfwunde. Für Walter ist die fehlende Perücke eine Formverletzung: <b>Form ist für ihn extrem wichtig.</b></p>
+</div>
+
+<div class="auftritt">
+  <h3>6. Auftritt – Marthe, Eve, Ruprecht, Veit treten auf</h3>
+  <p>Marthe Rull schreit lauthals. Veit bietet Schadenersatz an – Marthe weist ab: der Krug sei unersetzbar. <b>Ruprechts Schlüsselsatz:</b> Es gehe Marthe gar nicht um den Krug, sondern um die gefährdete Hochzeit – und er beschimpft Eve als „Metze“ (Hure). Marthe denkt sogar, der <b>alte Korporal</b> (Kriegsinvalide, „würdiger Holzbein“) wäre ein besserer Ehemann für Eve als diese Schande.</p>
+  <p><b>Zentrale Symbolebene:</b> Der zerbrochene Krug = Entjungferung / verlorene Ehre (vgl. Kunstgeschichte). Bei Schuld droht Eve die Kirchenbuße.</p>
+</div>
+
+<div class="auftritt">
+  <h3>7. Auftritt – der zentrale Prozess-Auftritt (längster)</h3>
+  <p><b>Eve:</b> „Unglückszimmer“, will fort – keiner hört hin. Adam nimmt Eve beiseite, bedroht sie: sie solle sich gut überlegen, was sie sage. Er deutet ein <b>Attest</b> und <b>Ruprechts Tod in Batavia/Ostindien</b> an.</p>
+  <p><b>Marthes Krug-Schilderung:</b> Darauf abgebildet ist die Übergabe der niederländischen Provinzen an Philipp II. – der Moment, der zum Unabhängigkeitskampf führte. Marthe = Hebamme (damals „unehrlicher Beruf“ – deshalb ihr starker Ehr-Fixpunkt). Adam lässt ins Protokoll setzen: der Krug sei „dem Amte wohlbekannt“ – verräterische Vorausdeutung.</p>
+  <p><b>Adam beschuldigt sofort Ruprecht:</b> „Prozess fertig“ – Walter protestiert scharf: Wenn Adam selbst den Krug zerschlagen hätte, könnte er den Verdacht nicht eifriger auf Ruprecht schieben. Licht könne Adam ersetzen.</p>
+  <p><b>Marthes Nacht-Schilderung:</b> aufgesprengte Kammertür, Krug in Scherben, Ruprecht wütend. Verräterisch sagt Marthe „Ihr“ – eigentlich grammatisch sinnlos, aber <b>Vorausdeutung</b> auf Adam.</p>
+  <p><b>Ruprechts Schilderung:</b> Sein Vater erlaubte ihm einen Besuch – aber nicht ins Haus. Er kam durch Umweg spät, sah Eve im Garten mit einem fremden Mann, dachte zuerst an <b>Flickschuster Lebrecht</b>. Er trat die Tür ein, der Krug fiel, ein Mann sprang aus dem Fenster. Ruprecht schlug ihm mit der Türklinke auf den Kopf. Der Fremde warf ihm Sand in die Augen und entkam.</p>
+  <p>Licht-Anspielung mit dem „Degen“ – Rückbezug auf Adams Ziegenbock-Lüge (Z. 50 f.): Licht hat Adam als Täter bereits erkannt und signalisiert es heimlich.</p>
+  <p><b>Sprichwort:</b> „Der Krug geht so lange zum Brunnen, bis er bricht.“ – Eine Grenze wird zu oft überschritten, irgendwann kommt die Konsequenz.</p>
+  <p>Adam erfindet eine juristische Lügen-Regel: Töchter dürften nicht gegen Mütter aussagen → Walter durchschaut: „Wissen und Irrtum wie Teig zusammengerührt.“</p>
+</div>
+
+<div class="auftritt">
+  <h3>8. Auftritt – Magd bringt Wasser</h3>
+  <p>Kürzester Auftritt des Stücks. Formale Funktion: Trennung des 7. und 9. Auftritts, damit nicht ein Mega-Auftritt entsteht, und die <b>symbolische Zahl 13</b> (Unglückszahl) erreicht wird.</p>
+</div>
+
+<div class="auftritt">
+  <h3>9. Auftritt – Adam kämpft ums Überleben</h3>
+  <p>Adam schlägt einen <b>Vergleich</b> statt Wahrheitsfindung vor – Walter: verdächtig. Er nennt beliebig mögliche Täter (Lebrecht, Ruprecht, oder beide). Walter: Adam greife „wie in einen Sack voll Erbsen“ ins Urteil.</p>
+  <p><b>Eve unter Druck:</b> Adam schmeichelt („Äwchen“, „Herzchen“), droht indirekt mit Ruprechts Schicksal. „Nenne Lebrecht, nenne Ruprecht – aber keinen dritten Namen.“</p>
+  <p><b>Der zentrale Gegensatz Eve/Ruprecht:</b></p>
+  <ul>
+    <li><b>Ruprecht:</b> glaubt, was er „mit Händen greifen“ kann – nur sichtbare Tatsachen.</li>
+    <li><b>Eve:</b> Liebe braucht <b>bedingungsloses Vertrauen</b>, auch gegen den äußeren Schein.</li>
+  </ul>
+  <p>Eve: Mit einem Wort könnte sie sich und Ruprecht ins Verderben bringen. Ihr Schweigen ist <b>Schutz</b>.</p>
+  <p>Marthe entwickelt neue Theorie: Ruprecht wollte mit Eve fliehen und Marthe bestehlen. <b>Frau Brigitte</b> (Nachbarin, Veits Schwester, Ruprechts Tante) wird als neue Zeugin vorgeladen.</p>
+</div>
+
+<div class="auftritt">
+  <h3>10. Auftritt – Warten, Trinken, Retardation</h3>
+  <p>Walter und Adam sitzen beim Wein. Walter rekonstruiert: Fensterhöhe, Weinspalier, zwei Kopfschläge (passen zu Adams zwei Wunden). Adam erfindet eine neue Perücken-Geschichte: sie sei beim nächtlichen Aktenstudium verbrannt.</p>
+  <p><b>Die verräterischen Trinksprüche:</b></p>
+  <ul>
+    <li>Adam: „Auf das, was wir lieben.“ (Genuss, Trieb, persönliche Lust)</li>
+    <li>Walter: „Auf das, was recht und gut und treu ist.“ (Recht, Moral, Pflicht)</li>
+  </ul>
+  <p>Marthe bestätigt unerwartet, Adam sei selten bei ihr gewesen – Walter zweifelt kurz. <b>Retardation</b> (Verzögerung) – Spannungstechnik nach aristotelischer Dramentheorie: Kurz vor der Lösung kommen Zweifel auf.</p>
+</div>
+
+<div class="auftritt">
+  <h3>11. Auftritt – die Perücke kommt zurück</h3>
+  <p>Licht und Brigitte kommen mit der Perücke – gefunden <b>im Weinspalier unter Eves Fenster</b>.</p>
+  <p><b>Walter bietet Adam ein Vertrauensgespräch</b> um der „Ehre des Gerichts“ willen – nicht aus Menschlichkeit. Adam lehnt ab, erfindet eine neue Story: er habe Ruprecht die Perücke zur Reparatur gegeben.</p>
+  <p><b>Brigittes Bericht:</b> Nachts hörte sie Eve im Garten mit jemandem reden; auf Frage: „Ja, es ist Ruprecht.“ (Eves frühere Schutzlüge fällt ihr nun auf die Füße.) Gegen Mitternacht begegnete ihr ein <b>Kahlköpfiger mit Pferdefuß, nach Schwefel stinkend</b> – für sie der Teufel (Adam hatte Verdauungsprobleme). Walter: „Blödsinniges Volk!“</p>
+  <p><b>Die Spur im Schnee:</b> rechts ein Menschenfuß, links ein unförmiger Klumpfuß. Die Spur führt direkt zu Adams Haus/Gericht, rein – nicht raus. Licht forciert die Nachfrage nach Adams Füßen. Adam zeigt seinen linken Fuß (Klumpfuß). Walter tut zufrieden – entweder Fehler Kleists oder Walter will die Ehre des Gerichts noch schützen.</p>
+  <p><b>Licht setzt Adam demonstrativ die Perücke auf – sie passt perfekt.</b> Ein theatralischer Höhepunkt der Entlarvung.</p>
+  <p>Unter dem Drängen Walters (um der Prozessordnung willen) spricht Adam trotzdem noch ein Urteil: <b>Ruprecht muss ins Gefängnis – nicht wegen des Krugs, sondern wegen ungebührlichen Verhaltens gegenüber dem Richter.</b> Walter verweist kühl auf die Appellationsinstanz in Utrecht.</p>
+  <p><b>Eve bricht endlich ihr Schweigen:</b> „Adam war es!“ Sie soll Ruprecht vom Richterstuhl reißen. <b>Adam flieht</b> – Ruprecht erwischt nur seinen Mantel.</p>
+</div>
+
+<div class="auftritt">
+  <h3>12. Auftritt – Auflösung der Erpressung</h3>
+  <p>Ruprecht bittet Eve zerknirscht um Verzeihung (einzige Figur mit echter Entschuldigung). Eve erklärt: Sie wollte Ruprecht vor dem Einsatz in <b>Ostindien/Batavia</b> retten – fast sicherer Tod. Sie zeigt einen Brief vor. Walter und Licht: <b>der Brief ist gefälscht – von Adam selbst verfasst.</b> Walters Beweis: Sollte Adams Behauptung korrekt sein, würde er Ruprecht persönlich freikaufen.</p>
+  <p>Eves Initiative ging nie aus – Adam hat sie mit einer Lüge erpresst, um sie sexuell auszunutzen. <b>Moralischer Tiefpunkt Adams: Urkundenfälschung und Nötigung.</b></p>
+  <p>Veit drängt auf Versöhnung und Hochzeit an Pfingsten. Licht beobachtet schadenfroh den fliehenden Adam – die Perücke peitscht ihm auf den Rücken. Walter will Adam trotzdem zurückholen (nicht aus Menschlichkeit, sondern aus Gattungslogik und Gerichtsinteresse). Licht bekommt nur vorläufig die Richterstelle (die Kassenfrage bleibt).</p>
+</div>
+
+<div class="auftritt">
+  <h3>13. Auftritt – Marthe und der Krug</h3>
+  <p>Ganz am Ende fragt Marthe immer noch: Wo kann sie wegen ihres Kruges weiterklagen? Sie will nach Utrecht zum höheren Gericht. Komischer Schlusspunkt: Während das ganze Gerichtssystem zusammenbricht, bleibt sie bei ihrem Ausgangspunkt.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s6">6 · Die Figuren im Detail</h2>
+
+<!-- ADAM -->
+<div class="figur-card">
+  <h3>Dorfrichter Adam – Richter und Täter in einer Person</h3>
+  <p><b>Äußerlich:</b> ca. 50 Jahre, kahlköpfig, unverheiratet, <b>Klumpfuß</b>, bei Stückbeginn zerkratztes Gesicht und zwei Kopfwunden.</p>
+  <p><b>Sozial:</b> Dorfautorität, aber isoliert (mit Lehrer und Pfarrer zerstritten). Kein juristisches Studium – unterlegen gegenüber Licht.</p>
+  <p><b>Charakter:</b> genießerisch, bequem, schlagfertig, rhetorisch-improvisationsstark, lügnerisch, „Schürzenjäger“, moralisch fragwürdig.</p>
+  <p><b>Name programmatisch:</b> Adam = der Mensch schlechthin (der biblische Ur-Adam, Sündenfall, Fall, Schuld). Er spricht früh vom „Ältervater“, der schon am Anfang fiel. Der Mensch trägt den „Stein des Anstoßes in sich selbst“.</p>
+
+  <div class="rolle">
+    <strong>Funktion:</strong> Adam ist die <b>Parodie auf Ödipus</b> und zugleich eine Figur des menschlichen Schuldigwerdens. Er ist Richter und Täter – der Kern des Dramas. Während Ödipus tragisch groß wird, weil er sich der Wahrheit stellt, wird Adam komisch und verächtlich, weil er ausweicht, lügt und am Ende flieht.
+  </div>
+</div>
+
+<!-- WALTER -->
+<div class="figur-card">
+  <h3>Gerichtsrat Walter</h3>
+  <p><b>Funktion:</b> höchste Instanz, kommt als Aufsichtsbeamter vom Obertribunal. Will das Gerichtswesen modernisieren: mehr Ordnung, Gesetzlichkeit, <b>geschriebenes Recht</b> statt dörflicher Willkür – Vertreter der <b>Aufklärung</b>.</p>
+  <p><b>Charakter:</b> streng, aufmerksam, formbewusst, prinzipienorientiert, kühl-strategisch – aber <b>nicht der moralisch gute Held.</b></p>
+  <p><b>Entlarvende Stellen:</b> Nennt den Selbstmordversuch in Holla einen „unangenehmen Vorfall“, der ihm die heitere Laune verdorben habe. Will Adam lange Zeit „zum Schutz der Ehre des Gerichts“ diskret entkommen lassen. Erzwingt ein formal korrektes Urteil gegen Ruprecht, obwohl längst klar ist, dass Adam der Täter ist – der Verweis auf die Appellation in Utrecht genügt ihm.</p>
+
+  <div class="rolle">
+    <strong>Funktion:</strong> Walter steht für Aufklärung, modernes Recht, Form und Kontrolle – aber auch für <b>institutionelle Kälte</b>. Ihm ist das <b>Ansehen des Gerichts</b> wichtiger als das Schicksal der einzelnen Menschen. Kleist kritisiert also beide Systeme: das alte willkürliche wie das neue formalistische.
+  </div>
+</div>
+
+<!-- LICHT -->
+<div class="figur-card">
+  <h3>Schreiber Licht</h3>
+  <p><b>Bildung:</b> juristisch geschult, klarer im Denken, sachlich aufmerksamer – besser ausgebildet als Adam. Aber seit <b>9 Jahren</b> nur Schreiber (die Neun symbolisch ebenfalls Unglückszahl).</p>
+  <p><b>Charakter:</b> ehrgeizig, karrierebewusst, beobachtend, schadenfroh, taktisch. Genießt Adams Krise und streut spöttische Anspielungen ein (z. B. der „Degen“ = Rückbezug auf den „Ziegenbock“). Setzt Adam demonstrativ die Perücke auf. Am Ende beobachtet er schadenfroh Adams Flucht.</p>
+  <p><b>Name programmatisch:</b> „Licht“ = Aufklärung, Wahrheit – aber er ist <b>kein reiner Aufklärer</b>. Er bringt Licht in den Fall aus gemischten Motiven: Ehrgeiz, Schadenfreude, Karriere. Er will Adams Stelle – und bekommt sie am Ende vorläufig.</p>
+
+  <div class="rolle">
+    <strong>Funktion:</strong> Adams interner Gegner – nicht aus Tugend, sondern aus Eigeninteresse. Er ist der <b>Kreon</b> in der Ödipus-Parallele: bedrängt den Richter und betreibt seine Entlarvung.
+  </div>
+</div>
+
+<!-- EVE -->
+<div class="figur-card">
+  <h3>Eve</h3>
+  <p><b>Alter:</b> vermutlich <b>12–14 Jahre</b> – nach heutiger Maßstab sehr jung. Das macht Adams Vorgehen noch problematischer.</p>
+  <p><b>Charakter:</b> fleißig, tüchtig, praktisch, innerlich stark, gläubig, zu bedingungslosem Vertrauen fähig.</p>
+  <p><b>Zentrale Haltung:</b> Für Eve ist Liebe = bedingungsloses Vertrauen. Sie erwartet von Ruprecht, dass er ihr glaubt – gegen den äußeren Schein. Genau da scheitert Ruprecht an ihr.</p>
+  <p><b>Ihr Schweigen:</b> <b>nicht</b> aus Schuld oder Trotz, sondern aus <b>Opferbereitschaft</b>. Adam hat ihr mit einem gefälschten Attest eingeredet, Ruprecht werde sonst nach Batavia/Ostindien geschickt und dort sterben. Aus religiösen Gründen wollte sie ursprünglich nicht mitspielen (Gott sieht ins Herz, kein Attest kann ihn täuschen). Sie wird durch Angst um Ruprecht in die Komplizenschaft gezwungen – das Zauberwort ist „geheim“.</p>
+  <p><b>Wehrt sich indirekt:</b> Sie sagt, der Richter selbst müsste als „armer Sünder“ vor Gericht stehen – spricht die Wahrheit fast offen aus, aber keiner hört richtig hin.</p>
+
+  <div class="rolle">
+    <strong>Funktion:</strong> Eve ist die <b>moralisch stärkste Figur</b> des Stücks. Sie spiegelt <b>Susanna im Bade</b> (Daniel-Buch): die junge Frau, die von einem älteren Richter sexuell bedrängt wird und zur Zielscheibe der Anklage wird, wenn sie sich weigert.
+  </div>
+</div>
+
+<!-- RUPRECHT -->
+<div class="figur-card">
+  <h3>Ruprecht Tümpel</h3>
+  <p><b>Alter:</b> ca. 15 Jahre. Charakter: ruppig, grob, direkt, handfest, eifersüchtig – im Kern gutherzig.</p>
+  <p><b>Seine Grundhaltung:</b> Er glaubt nur, was er „mit Händen greifen“ kann – der <b>sichtbare Schein</b>. Er will Eve heiraten, weil sie tüchtig ist – er sieht sie bei der Feldarbeit kraftvoll zupacken. Das ist nicht romantisch, aber für ihn entscheidend.</p>
+  <p><b>Sein Versagen:</b> Fehlendes Vertrauen. Er fühlt sich wie ein „Gehörnter“, beschimpft Eve als „Metze“/Hure, lehnt jede Erklärung ab. Damit scheitert er an Eves Liebes-Konzept.</p>
+  <p><b>Am Ende:</b> Er ist die <b>einzige Figur, die sich ehrlich entschuldigt</b> und auf Versöhnung zielt.</p>
+
+  <div class="rolle">
+    <strong>Funktion:</strong> Ruprechts Problem ist nicht Bosheit, sondern fehlendes Vertrauen. Seine Figur zeigt: Der Krug ist nicht allein zerbrochen – das Vertrauen zwischen den Menschen ist es auch.
+  </div>
+</div>
+
+<!-- MARTHE -->
+<div class="figur-card">
+  <h3>Frau Marthe Rull</h3>
+  <p><b>Alter/Beruf:</b> ca. 50, <b>Hebamme</b> – damals „unehrlicher Beruf“. Deshalb ist sie auf den guten Ruf besonders angewiesen.</p>
+  <p><b>Charakter:</b> laut, fordernd, energisch, angriffslustig, ehrfixiert. Namensanspielung an <b>Marthe Schwerdtlein</b> aus Goethes <em>Faust</em>.</p>
+  <p><b>Ihr eigentliches Motiv:</b> Nicht der materielle Krug, sondern die Ehre ihrer Tochter, ihr eigener Ruf, die geplante Hochzeit, der soziale Ruf im Dorf. Schlägt sogar den alten Korporal („würdiger Holzbein“) als Ehemann für Eve vor – lieber als Ehrverlust.</p>
+  <p>Sie wendet sich in der Krise gegen die eigene Tochter („Metze“) und will sie rauswerfen – weil die Ehre wichtiger ist als das Vertrauensverhältnis.</p>
+
+  <div class="rolle">
+    <strong>Funktion:</strong> Verkörperung einer erstarrten dörflichen Ehrmoral. Der Krug = Symbol, kein Haushaltsgegenstand.
+  </div>
+</div>
+
+<!-- VEIT -->
+<div class="figur-card">
+  <h3>Veit Tümpel – Ruprechts Vater</h3>
+  <p>Anständig, ordentlich: bereit, Schadenersatz für den Krug zu leisten, falls sein Sohn schuld sein sollte. Er erlaubte Ruprecht den nächtlichen Besuch unter strenger Bedingung: <b>nicht ins Haus</b>. Typische Dorfmoral.</p>
+  <p>Verliert zwischenzeitlich das Vertrauen zu seinem Sohn (glaubt, er wolle desertieren und fliehen). Am Ende drängt er als erster auf Versöhnung und Pfingst-Hochzeit.</p>
+
+  <div class="rolle">
+    <strong>Funktion:</strong> Vertreter der älteren dörflichen Ordnung – auch hier: zerbrechendes Vertrauen, dann Wiederherstellung.
+  </div>
+</div>
+
+<!-- BRIGITTE -->
+<div class="figur-card">
+  <h3>Frau Brigitte – Nachbarin, Ruprechts Tante</h3>
+  <p>Aufmerksam, genau beobachtend – aber stark abergläubisch. Sie sieht die Fakten richtig (Kahlköpfiger, deformierter Fuß, Schwefelgestank, Spur im Schnee), deutet sie aber <b>teuflisch</b>.</p>
+  <p>Trotz falscher Deutung ist sie die Schlüsselzeugin: Sie liefert die beiden entscheidenden Indizien – die Perücke aus dem Weinspalier und die Spur, die zu Adams Haus führt.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s7">7 · Zentrale Symbole & Schlüsselszenen</h2>
+
+<h3>7.1 · Die Perücke als Dingsymbol</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Die Perücke durchläuft vier symbolische Stufen:</p>
+  <ol>
+    <li><b>Autorität:</b> Sie steht für Adams Amtswürde und richterliche Hoheit.</li>
+    <li><b>Autoritätsverlust:</b> Ihr Fehlen bei Walters Besuch – Form-Bruch.</li>
+    <li><b>Beweisstück:</b> Brigitte findet sie im Weinspalier unter Eves Fenster.</li>
+    <li><b>Endgültiger Autoritätsverlust:</b> Licht setzt sie Adam auf – sie passt. Bei der Flucht „peitscht sie ihm auf den Rücken“.</li>
+  </ol>
+  <p><b>Adams drei Perückengeschichten</b> zeigen sein permanentes Improvisieren: (1) Die Katze hat darin „gejungt“. (2) Beim nächtlichen Aktenlesen in Flammen aufgegangen. (3) Ruprecht habe sie zum Perückenmeister bringen sollen.</p>
+</div>
+
+<h3>7.2 · Der zerbrochene Krug</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <ul>
+    <li><b>Kunstgeschichtlich:</b> verlorene Jungfräulichkeit / Entjungferung – deshalb ist Marthes Klage in Wahrheit eine Ehrklage.</li>
+    <li><b>Historisch-politisch:</b> Das Krugmotiv zeigt die Übergabe der niederländischen Provinzen an Philipp II. – den Ausgangsmoment des Unabhängigkeitskampfes. Spiegelung von Kleists politischer Sehnsucht nach deutscher Einheit gegen Napoleon.</li>
+    <li><b>Sprichwörtlich:</b> „Der Krug geht zum Brunnen, bis er bricht“ – eine Situation endlos ausnutzen führt am Ende zum Schaden und zur Entlarvung.</li>
+    <li><b>Symbolisch erweitert:</b> Mit dem Krug zerbricht Harmonie, Beziehung, Vertrauen, dörfliche Ordnung.</li>
+  </ul>
+</div>
+
+<h3>7.3 · Der Klumpfuß</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Der linke Fuß ist verkrüppelt – passt zur Fußspur im Schnee (rechts normal, links unförmig). Doppelreferenz:</p>
+  <ul>
+    <li><b>Ödipus-Parallele:</b> Auch Ödipus hat einen auffälligen Fuß (sein Name = „Schwellfuß“).</li>
+    <li><b>Teufels-Assoziation:</b> Brigittes „Pferdefuß“ + Schwefelgestank = populäre Teufelsikonographie. Komische Parodie des Mephisto-Motivs: Adam wird als lächerlich-teuflische Figur entlarvt.</li>
+  </ul>
+</div>
+
+<h3>7.4 · Adams Traum (3. Auftritt)</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>„Mir träumt', es hätt ein Kläger mich ergriffen, / Und schleppte vor den Richtstuhl mich; und ich, / Ich säße gleichwohl auf dem Richtstuhl dort …“ Der Traum nimmt das ganze Stück vorweg: Adam ist Richter und Angeklagter zugleich; am Ende verschmelzen beide und fliehen gemeinsam. <b>Antizipation</b>, fast wie das Orakel bei Ödipus – unerbittliches Walten des Schicksals. Adam glaubt naiv, er könne dem Traum entgehen – real droht die Gefahr durch Gerichtsrat Walter.</p>
+</div>
+
+<h3>7.5 · Die Batavia-Erpressung</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Adams moralischer Tiefpunkt. Er malt Eve aus, Ruprecht werde nach Batavia (Indonesien) geschickt – fast sicherer Tod. Das gefälschte Attest bietet „Rettung“ – aber nur, wenn Eve mitspielt. Er macht sie zur <b>Komplizin</b> und bindet sie durch <b>Angst, Geheimnis, Schuldgefühl und Schweigezwang</b>.</p>
+  <p><b>Parallele Susanna im Bade</b> (Buch Daniel): Zwei alte Richter bedrängen die junge Susanna beim Baden, und als sie sich weigert, drehen sie die Sache um und beschuldigen sie selbst. Erst Daniel deckt den Betrug auf. Genau dieses Muster wiederholt Adam: Machtmissbrauch und Umkehrung der Anklage.</p>
+</div>
+
+<h3>7.6 · Die Fußspur im Schnee</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Rechts normaler Menschenfuß, links unförmig. Die Spur führt direkt in Adams Haus – rein, nicht raus. Fast kriminalistisch. Als Walter nach Adams Füßen fragt und Adam seinen linken (deformierten) zeigt, tut Walter zufrieden – entweder Fehler Kleists oder Walter will die Ehre des Gerichts noch einen Moment länger schützen.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s8">8 · Themen & Deutung</h2>
+
+<h3>8.1 · Wahrheit und die Unmöglichkeit, sie zu erkennen</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Die Kant-Krise wirkt direkt ins Stück: Die Wahrheit liegt offen auf dem Tisch, aber fast niemand sieht sie. Jeder geht mit Vorannahmen ins Geschehen – jeder schaut durch seine „grüne Brille“:</p>
+  <ul>
+    <li>Marthe durch Ehrvorstellungen</li>
+    <li>Ruprecht durch Eifersucht</li>
+    <li>Veit durch Misstrauen</li>
+    <li>Brigitte durch Aberglauben</li>
+    <li>Walter durch Gerichtsdenken</li>
+    <li>Licht durch Karriereabsicht</li>
+    <li>Adam durch Vertuschungswillen</li>
+  </ul>
+  <p>Wahrheit wird nicht durch falsche Fakten verborgen, sondern durch die Perspektiven der Beteiligten verstellt. <b>Die Wahrheitsfrage ist eng mit der Machtfrage verknüpft.</b></p>
+</div>
+
+<h3>8.2 · Macht und sexueller Machtmissbrauch</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Kern des Stücks: Der Typus des <b>lüsternen Alten</b>, der seine Amtsmacht zur sexuellen Bedrängung einer sehr jungen Frau einsetzt. Zwei Stufen:</p>
+  <ol>
+    <li><b>Nachts:</b> sexueller Machtmissbrauch im Schlafzimmer durch Erpressung mit dem Batavia-Attest.</li>
+    <li><b>Tags:</b> juristischer Machtmissbrauch im Gericht – Adam droht mit Urteil, um Eve zum Schweigen zu bringen.</li>
+  </ol>
+  <p><b>Sein taktischer Fehler:</b> Er überzieht. Als er Ruprecht mit Gefängnis bedroht, bricht Eves Schweigen. Die Spirale des Machtmissbrauchs wird zu weit gedreht.</p>
+</div>
+
+<h3>8.3 · Vertrauenskrise – zerbrochen ist mehr als der Krug</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Rund um den Prozess zerbrechen Beziehungen reihenweise:</p>
+  <ul>
+    <li>Ruprecht ↔ Eve (Schein statt Vertrauen)</li>
+    <li>Marthe ↔ Eve (Ehre statt Mutterliebe)</li>
+    <li>Veit ↔ Ruprecht (Verdacht auf Fahnenflucht)</li>
+    <li>Adam ↔ Licht (Konkurrenz und gegenseitiges Misstrauen)</li>
+    <li>Dorfgemeinschaft insgesamt: jeder deutet gegen jeden</li>
+  </ul>
+</div>
+
+<h3>8.4 · Justizkritik – altes und neues System</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <table>
+    <tr><th>Altes System (Adam)</th><th>Neues System (Walter)</th></tr>
+    <tr><td>Gewohnheitsrecht, mündlich</td><td>Geschriebenes, kodifiziertes Recht</td></tr>
+    <tr><td>„Wie in Huisum üblich“</td><td>„Nach den Formalitäten“</td></tr>
+    <tr><td>Willkür, Improvisation</td><td>Ordnung, Verfahren</td></tr>
+    <tr><td>Person und Amt nicht getrennt</td><td>Form, Schriftlichkeit, Kontrolle</td></tr>
+    <tr><td>Lokale Macht, Privilegien</td><td>Professionalisierung, Reform</td></tr>
+  </table>
+  <p><b>Kleist kritisiert beide:</b> Das alte System ist korrupt und willkürlich (Adam, der suspendierte Richter Faul aus Holla). Das neue System ist kühl-formalistisch – Walter schützt die Gerichtsehre vor den Menschen. Das Urteil gegen Ruprecht wird erzwungen (obwohl alle die Wahrheit ahnen), und der Verweis auf die Appellation in Utrecht genügt Walter.</p>
+</div>
+
+<h3>8.5 · Aufklärung – Ideal und Kritik</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Die Aufklärung fordert Vernunft, Denken, Mündigkeit, Selbstständigkeit – zentrale Namen: Descartes („Ich denke, also bin ich“), Kant („Sapere aude“), Rousseau (bei Kleist besonders wichtig – er wollte wegen Rousseau einmal Bauer in der Schweiz werden). Wichtige Daten: 1776 (Amerikanische Unabhängigkeit), 1789 (Französische Revolution).</p>
+  <p>Walter vertritt diese Ideen – aber Kleist zeigt, dass Aufklärung nicht automatisch Menschlichkeit bedeutet. Sie kann bürokratisch und institutionell erstarrt sein.</p>
+</div>
+
+<h3>8.6 · Sündenfall-Mythos</h3>
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <p>Der Mensch wird schuldig, weil er Gut und Böse erkennen kann. Erst Erkenntnis macht Schuld möglich. Adam ist also nicht nur Spaßfigur, sondern <b>der Mensch schlechthin als schuldiges Wesen</b>. Sein Name ist kein Zufall: Er ist gefallen, Ältervater, am Fall aller beteiligt.</p>
+</div>
+
+<h3>8.7 · Die politische Dimension: Sehnsucht nach deutscher Einheit</h3>
+<div class="box bio">
+  <span class="label">Historisches</span>
+  <p>Um 1806–1811: Napoleon besetzt Preußen, Deutschland ist zersplittert. Die Niederlande dienen als historisches Vorbild: Provinzen, die sich befreien und vereinigen. Verbindungen zu Schillers <em>Don Carlos</em>, Goethes <em>Egmont</em>, Kleists „Katechismus der Deutschen“ (1809) und später zu Arndts „Was ist des Deutschen Vaterland?“ Die ursprüngliche Bedeutung von „Deutschland, Deutschland über alles“ meinte Einheit <b>über</b> die deutschen Einzelstaaten hinweg – nicht Überlegenheit über andere Völker.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s9">9 · Adam und Ödipus – der zentrale Vergleich</h2>
+
+<div class="box deutung">
+  <span class="label">Deutung</span>
+  <h3 style="margin-top:6px; border:none; color:var(--c-deutung);">Die Parallelen</h3>
+  <table>
+    <tr><th>Ödipus</th><th>Adam</th></tr>
+    <tr><td>König/Richter</td><td>Dorfrichter</td></tr>
+    <tr><td>Auffälliger Fuß („Schwellfuß“)</td><td>Klumpfuß</td></tr>
+    <tr><td>Täter und Ermittler zugleich</td><td>Täter und Richter zugleich</td></tr>
+    <tr><td>Ermittlung von außen angestoßen (Orakel, Pest)</td><td>Ermittlung von außen angestoßen (Walter)</td></tr>
+    <tr><td>Bedrängt durch Kreon</td><td>Bedrängt durch Licht</td></tr>
+  </table>
+
+  <h3 style="margin-top:16px; border:none; color:var(--c-deutung);">Der entscheidende Unterschied</h3>
+  <table>
+    <tr><th>Ödipus</th><th>Adam</th></tr>
+    <tr><td>Weiß zunächst nichts von seiner Schuld</td><td>Kennt seine Schuld von Anfang an</td></tr>
+    <tr><td>Sucht ernsthaft die Wahrheit</td><td>Sucht Vertuschung</td></tr>
+    <tr><td>Erkennt die Wahrheit</td><td>Lügt und verdreht bis zuletzt</td></tr>
+    <tr><td>Übernimmt Verantwortung (blendet sich)</td><td>Verurteilt einen Unschuldigen, flieht</td></tr>
+  </table>
+</div>
+
+<div class="kern">
+  Ödipus wird tragisch groß, weil er sich der Wahrheit stellt. Adam wird komisch und verächtlich, weil er ihr ausweicht. Damit ist Kleists Lustspiel eine <b>komische Spiegelung</b> der antiken Tragödie – das Hohe wird ins Dorf geholt und entlarvt.
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s10">10 · Merksätze fürs Abi</h2>
+
+<div class="kern">
+  <b>Ein-Satz-Merker:</b> <em>Der zerbrochne Krug</em> zeigt einen Dorfrichter, der in eigener Sache urteilt – und dabei Schritt für Schritt entlarvt wird, weil er Schuld, Macht und Amt verwechselt hat.
+</div>
+
+<h3>Die sechs Kerngedanken</h3>
+<ol>
+  <li><b>Richter und Täter in einer Person:</b> Adam sitzt zu Gericht über einen Fall, in dem er selbst der Schuldige ist – Parodie auf Ödipus.</li>
+  <li><b>Analytisches Drama:</b> Die Tat ist schon geschehen; die Bühne zeigt nur ihre schrittweise Enthüllung. Nicht „Wer war es?“, sondern „Wie windet Adam sich?“.</li>
+  <li><b>Machtmissbrauch mit zwei Gesichtern:</b> Nachts sexuell (Batavia-Erpressung), tags juristisch (falsches Urteil gegen Ruprecht).</li>
+  <li><b>Zerbrochen ist mehr als der Krug:</b> Ehre, Vertrauen, dörfliche Ordnung, Beziehung Eve/Ruprecht.</li>
+  <li><b>Justizkritik doppelt:</b> Kleist zeigt das alte willkürliche Dorfrecht (Adam) <b>und</b> das neue formalistische Staatsrecht (Walter) als je eigene Verfehlungen.</li>
+  <li><b>Kant-Krise auf der Bühne:</b> Die Wahrheit liegt offen – aber niemand sieht sie, weil jeder durch seine „grüne Brille“ schaut.</li>
+</ol>
+
+<h3>Abi-tauglicher Fließtext (40-Sekunden-Version)</h3>
+<blockquote class="zitat">
+Heinrich von Kleists Lustspiel <em>Der zerbrochne Krug</em> zeigt am Beispiel eines scheinbar harmlosen Dorfprozesses, wie ein Dorfrichter in eigener Sache urteilt. Adam muss ausgerechnet an dem Tag, an dem Gerichtsrat Walter das ländliche Rechtswesen kontrolliert, den Prozess um einen zerbrochenen Krug leiten – obwohl er selbst der Täter ist, der in der Nacht zuvor die junge Eve in ihrem Zimmer bedrängt und aus dem Fenster geflohen ist. Mit immer neuen Lügen versucht er, sich zu retten, bis Zeugenaussagen, die gefundene Perücke, die Fußspur und schließlich Eves Geständnis ihn entlarven. Formal ist das Stück ein analytisches Drama: Die eigentliche Tat liegt vor Beginn, die Handlung zeigt nur die Enthüllung. Inhaltlich verbindet Kleist derbe Dorfkomik mit großen Themen – Machtmissbrauch, Justizkritik, die Vertrauenskrise zwischen den Menschen, die Parallele zu Ödipus als Richter und Täter zugleich, und nicht zuletzt seine eigene Kant-Krise: Die Wahrheit liegt offen, aber fast niemand kann sie sehen, weil jeder durch seine Vorurteile blickt. Am Ende flieht Adam lächerlich, die Perücke peitscht ihm auf den Rücken – ein komisches Bild, das zugleich die Entblößung jeder unrechtmäßigen Autorität zeigt.
+</blockquote>
+
+<hr style="margin-top:50px; border:none; border-top:1px solid #ccc;">
+<p style="color:#888; font-size:13px; text-align:center; margin-top:20px;">
+Master-Zusammenfassung auf Grundlage der Gesamtdarstellung und Gesamtinterpretation von Klaus Schenck (2024/25) zu Heinrich von Kleist, <em>Der zerbrochne Krug</em>, Reclam XL 16166.
+</p>
+
+</body>
+</html>
