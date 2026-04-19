@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Abi Pflichtlektüren 2026 – Deutsch Zusammenfassungen, Analyse & Deutung</title>
-  <meta name="description" content="Kostenlose Zusammenfassungen zu den Deutsch-Abi Pflichtlektüren 2026: Heimsuchung und Der zerbrochne Krug – mit Analyse, Figuren, Struktur und Deutung.">
-  <meta name="keywords" content="Abi Pflichtlektüren 2026, Deutsch Abi 2026, Heimsuchung Zusammenfassung, Der zerbrochne Krug Zusammenfassung, Abi Deutsch Pflichtlektüre, Analyse, Deutung">
+  <meta name="description" content="Kostenlose Zusammenfassungen zu den Deutsch-Abi Pflichtlektüren 2026: Heimsuchung und Der zerbrochne Krug – mit Analyse, Figuren, Struktur und Deutung sowie Zusatzwissen zu Literaturepochen.">
+  <meta name="keywords" content="Abi Pflichtlektüren 2026, Deutsch Abi 2026, Heimsuchung Zusammenfassung, Der zerbrochne Krug Zusammenfassung, Abi Deutsch Pflichtlektüre, Analyse, Deutung, Literaturepochen">
   <meta name="author" content="Thea">
   <meta name="robots" content="index, follow">
 
@@ -31,8 +31,19 @@
       --shadow-strong: 0 18px 40px rgba(8, 29, 63, 0.18);
       --radius: 16px;
       --radius-lg: 22px;
+
       --paypal-1: #0070ba;
       --paypal-2: #003087;
+
+      --pflicht-bg: #fff7f7;
+      --pflicht-border: #e7bcbc;
+      --pflicht-accent: #b42318;
+      --pflicht-soft: #fdecec;
+
+      --extra-bg: #f8fbff;
+      --extra-border: #cfe0f3;
+      --extra-accent: #1e5fb3;
+      --extra-soft: #e8f1fb;
     }
 
     * {
@@ -118,7 +129,8 @@
     }
 
     .intro-box,
-    .search-box {
+    .search-box,
+    .section-box {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -217,7 +229,6 @@
     .paypal-icon {
       width: 22px;
       height: 22px;
-      display: inline-block;
       border-radius: 50%;
       background: rgba(255,255,255,0.18);
       display: flex;
@@ -267,28 +278,86 @@
       margin-top: 10px;
     }
 
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 7px 11px;
+      border-radius: 999px;
+    }
+
+    .pflicht-badge {
+      background: var(--pflicht-soft);
+      color: var(--pflicht-accent);
+      border: 1px solid #efc8c4;
+    }
+
+    .extra-badge {
+      background: var(--extra-soft);
+      color: var(--extra-accent);
+      border: 1px solid #cfe0f3;
+    }
+
+    .divider {
+      margin: 34px 0 28px;
+      border: none;
+      border-top: 2px solid #d9e1ea;
+    }
+
+    .section-subtext {
+      color: var(--muted);
+      margin-top: 0;
+      margin-bottom: 6px;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 24px;
-      margin-top: 26px;
+      margin-top: 22px;
     }
 
     .card {
       display: block;
       text-decoration: none;
-      background: var(--card);
-      border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 24px;
-      box-shadow: var(--shadow);
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      border-color: #bfd0ea;
       box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+    }
+
+    .pflicht-card {
+      background: var(--pflicht-bg);
+      border: 1px solid var(--pflicht-border);
+      box-shadow: var(--shadow);
+    }
+
+    .pflicht-card:hover {
+      border-color: #d59089;
+    }
+
+    .extra-card {
+      background: var(--extra-bg);
+      border: 1px solid var(--extra-border);
+      box-shadow: var(--shadow);
+    }
+
+    .extra-card:hover {
+      border-color: #9fc2e8;
     }
 
     .tag {
@@ -297,14 +366,27 @@
       font-weight: 700;
       letter-spacing: 0.4px;
       text-transform: uppercase;
-      background: #e8f1fb;
-      color: var(--accent);
       padding: 6px 10px;
       border-radius: 999px;
       margin-bottom: 14px;
     }
 
-    .card h3 {
+    .pflicht-tag {
+      background: #f7d9d6;
+      color: var(--pflicht-accent);
+    }
+
+    .extra-tag {
+      background: var(--extra-soft);
+      color: var(--extra-accent);
+    }
+
+    .pflicht-card h3 {
+      margin-bottom: 6px;
+      color: #8f1d13;
+    }
+
+    .extra-card h3 {
       margin-bottom: 6px;
       color: var(--accent-dark);
     }
@@ -386,13 +468,16 @@
         <h1>Abi Pflichtlektüren 2026</h1>
         <p>
           Auf dieser Website findest du verständliche Zusammenfassungen, Analysen und Deutungen
-          zu den Deutsch-Pflichtlektüren für das Abitur 2026.
+          zu den Deutsch-Pflichtlektüren für das Abitur 2026 — plus hilfreiches Zusatzwissen
+          für Einleitungen, Epochenwissen und bessere Interpretationen.
         </p>
 
         <nav class="mini-nav" aria-label="Schnellzugriff">
-          <a href="#lektueren">Zu den Lektüren</a>
+          <a href="#pflichtlektueren">Pflichtlektüren</a>
+          <a href="#zusatzwissen">Zusatzwissen</a>
           <a href="heimsuchung.html">Heimsuchung</a>
           <a href="krug.html">Der zerbrochne Krug</a>
+          <a href="epochen.html">Literaturepochen</a>
         </nav>
       </div>
     </div>
@@ -420,15 +505,14 @@
       </section>
 
       <section class="intro-box">
-        <h2>Welche Pflichtlektüren gibt es ab 2026?</h2>
+        <h2>Was findest du auf dieser Website?</h2>
         <p>
-          Für das Deutsch-Abitur 2026 stehen hier aktuell zwei wichtige Werke im Mittelpunkt:
-          <strong>Jenny Erpenbeck: <em>Heimsuchung</em></strong> und
-          <strong>Heinrich von Kleist: <em>Der zerbrochne Krug</em></strong>.
+          Der Fokus liegt zuerst auf den <strong>Pflichtlektüren fürs Deutsch-Abitur 2026</strong>.
+          Zusätzlich findest du nach und nach <strong>Zusatzwissen</strong>, das dir beim Verstehen,
+          Einordnen und Schreiben im Abi hilft.
         </p>
         <p>
-          Die Unterseiten sind so aufgebaut, dass du schnell die wichtigsten Punkte findest:
-          Inhalt, Figuren, Aufbau, Struktur, Deutung und Merksätze fürs Abi.
+          So kannst du nicht nur auswendig lernen, sondern Texte wirklich besser analysieren und deuten.
         </p>
       </section>
 
@@ -440,22 +524,32 @@
           <input
             type="text"
             id="searchInput"
-            placeholder="Zum Beispiel: Heimat, Kleist, Erpenbeck, Deutung ..."
-            aria-label="Lektüren durchsuchen"
+            placeholder="Zum Beispiel: Heimat, Kleist, Erpenbeck, Epochen ..."
+            aria-label="Inhalte durchsuchen"
           >
         </div>
+
+        <p class="search-note">
+          Die Suche filtert alle Karten auf dieser Startseite.
+        </p>
       </section>
 
-      <section id="lektueren">
-        <h2>Übersicht der Lektüren</h2>
+      <section id="pflichtlektueren" class="section-box">
+        <div class="section-header">
+          <span class="section-badge pflicht-badge">Pflichtlektüren</span>
+          <h2 style="margin:0;">Pflichtlektüren für das Deutsch-Abi 2026</h2>
+        </div>
+        <p class="section-subtext">
+          Das sind die zentralen Werke, die fürs Abi besonders wichtig sind.
+        </p>
 
         <div class="grid" id="bookGrid">
           <a
             href="heimsuchung.html"
-            class="card searchable-card"
-            data-search="heimsuchung jenny erpenbeck roman heimat erinnerung geschichte verlust analyse deutung figuren struktur abitur abi 2026"
+            class="card pflicht-card searchable-card"
+            data-search="heimsuchung jenny erpenbeck roman heimat erinnerung geschichte verlust analyse deutung figuren struktur abitur abi 2026 pflichtlektüre"
           >
-            <span class="tag">Roman</span>
+            <span class="tag pflicht-tag">Pflichtlektüre · Roman</span>
             <h3>Heimsuchung</h3>
             <p class="author">Jenny Erpenbeck</p>
             <p>
@@ -469,10 +563,10 @@
 
           <a
             href="krug.html"
-            class="card searchable-card"
-            data-search="der zerbrochne krug zerbrochene krug heinrich von kleist drama lustspiel richter adam eve analyse deutung figuren struktur abi abitur 2026"
+            class="card pflicht-card searchable-card"
+            data-search="der zerbrochne krug zerbrochene krug heinrich von kleist drama lustspiel richter adam eve analyse deutung figuren struktur abi abitur 2026 pflichtlektüre"
           >
-            <span class="tag">Drama</span>
+            <span class="tag pflicht-tag">Pflichtlektüre · Drama</span>
             <h3>Der zerbrochne Krug</h3>
             <p class="author">Heinrich von Kleist</p>
             <p>
@@ -481,6 +575,38 @@
             </p>
             <div class="topics">
               Themen: Wahrheit · Machtmissbrauch · Justizkritik · Komödie · Ödipus-Bezug
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <section id="zusatzwissen" class="section-box">
+        <div class="section-header">
+          <span class="section-badge extra-badge">Zusatzwissen</span>
+          <h2 style="margin:0;">Zusatzwissen für besseres Verstehen und Schreiben</h2>
+        </div>
+        <p class="section-subtext">
+          Diese Inhalte sind keine Pflichtlektüren, helfen dir aber stark bei Einleitungen,
+          Epocheneinordnungen, Interpretationen und Klausuren.
+        </p>
+
+        <div class="grid">
+          <a
+            href="epochen.html"
+            class="card extra-card searchable-card"
+            data-search="literaturepochen epochen deutsch abi aufklärung sturm und drang klassik romantik vormärz biedermeier realismus naturalismus stilpluralismus expressionismus"
+          >
+            <span class="tag extra-tag">Zusatzwissen · Epochen</span>
+            <h3>Literaturepochen</h3>
+            <p class="author">Deutsch-Abi Überblick</p>
+            <p>
+              Eine verständliche Übersicht zu den wichtigsten Literaturepochen fürs Deutsch-Abi
+              mit Merkmalen, historischem Hintergrund, Konflikten und Autor:innen.
+            </p>
+            <div class="topics">
+              Themen: Aufklärung · Romantik · Realismus · Naturalismus · Expressionismus
             </div>
           </a>
         </div>
